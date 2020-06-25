@@ -1,23 +1,18 @@
 <template>
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-8">
-                <div class="card">
-                    <div class="card-header">Example Component</div>
-
-                    <div class="card-body">
-                        I'm an example component.
-                    </div>
-                </div>
-            </div>
-        </div>
+  <div class="container">
+    <Header></Header>
+    <router-view></router-view>
+    <Footer></Footer>
     </div>
 </template>
-
 <script>
-    export default {
-        mounted() {
-            console.log('Component mounted.')
-        }
-    }
+ import Header from './frontend/common/Header';
+ import Footer from './frontend/common/Footer';
+
+export default {
+     components: {
+            Header,
+            Footer,
+        },
+}
 </script>
