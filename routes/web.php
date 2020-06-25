@@ -20,3 +20,14 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+
+Route::prefix('/app')->group(function () {
+    Route::resource('/category', 'CategoryController');
+    Route::resource('/pizza', 'PizzaController');
+    Route::resource('/cart', 'CartController');
+    Route::resource('/order', 'OrderController');
+    Route::resource('/topping', 'ToppingController');
+
+     
+});

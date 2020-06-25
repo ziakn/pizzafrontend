@@ -16,191 +16,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-6" style="padding: 8px; border: 1px dotted rgba(255, 255, 255, 0.25098039215686274);background-color: #151414;">
-                    <div class="col-md-6" style="text-align: center;">
-                        <img src="images/slide1.jpg">
-                        <h3 style="margin-top: 10px; color: #ffffff;">QAR 51.02</h3>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 style="margin-top: 10px;color: #ffffff;">Veg Pizza</h3>
-                        <p style="color: #ffffff;">Spices 1, Mango 1, Grash, Vegetable, Non Veg, Chicken, Mushroom, Paneer, Butter, Cheese</p>
-                        <div class="row" style="margin-bottom: 5px;">
-                            <div class="col-md-7" style="padding: 3px;">
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width: 100%;">Pan
-                                    <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                    <li><a href="#">Pan</a></li>
-                                    <li><a href="#">SFL</a></li>
-                                    <li><a href="#">Thin Scrap</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-5" style="padding: 3px;">
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width: 100%;">Large
-                                    <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                    <li><a href="#">Small</a></li>
-                                    <li><a href="#">Medium</a></li>
-                                    <li><a href="#">Large</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5" style="padding: 3px;">
-                                <button type="button" class="btn btn-primary" style="width: 100%;">CUSTOMIZE</button>
-                            </div>
-                            <div class="col-md-7" style="padding: 3px;">
-                                <button type="button" class="btn btn-danger" style="width: 100%;">ADD TO ORDER</button>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="col-md-6" style="padding: 8px;border: 1px dotted rgba(255, 255, 255, 0.25098039215686274);background-color: #151414;">
-                    <div class="col-md-6" style="text-align: center;">
-                        <img src="images/slide1.jpg">
-                        <h3 style="    margin-top: 10px;color: #ffffff;">QAR 51.02</h3>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 style="margin-top: 10px;color: #ffffff;">Veg Pizza</h3>
-                        <p style="color: #ffffff;">Spices 1, Mango 1, Grash, Vegetable, Non Veg, Chicken, Mushroom, Paneer, Butter, Cheese</p>
-                        <div class="row" style="margin-bottom: 5px;">
-                            <div class="col-md-7" style="padding: 3px;">
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width: 100%;">Pan
-                                    <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                    <li><a href="#">Pan</a></li>
-                                    <li><a href="#">SFL</a></li>
-                                    <li><a href="#">Thin Scrap</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-5" style="padding: 3px;">
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width: 100%;">Large
-                                    <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                    <li><a href="#">Small</a></li>
-                                    <li><a href="#">Medium</a></li>
-                                    <li><a href="#">Large</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5" style="padding: 3px;">
-                                <button type="button" class="btn btn-primary" style="width: 100%;">CUSTOMIZE</button>
-                            </div>
-                            <div class="col-md-7" style="padding: 3px;">
-                                <button type="button" class="btn btn-danger" style="width: 100%;">ADD TO ORDER</button>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
-            <!-- <div class="row">
-                <div class="col-md-6" style="padding: 8px; border: 1px dotted rgba(255, 255, 255, 0.25098039215686274);background-color: #151414;">
-                    <div class="col-md-6" style="text-align: center;">
-                        <img src="images/slide1.jpg">
-                        <h3 style="margin-top: 10px; color: #ffffff;">QAR 51.02</h3>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 style="margin-top: 10px;color: #ffffff;">Veg Pizza</h3>
-                        <p style="color: #ffffff;">Spices 1, Mango 1, Grash, Vegetable, Non Veg, Chicken, Mushroom, Paneer, Butter, Cheese</p>
-                        <div class="row" style="margin-bottom: 5px;">
-                            <div class="col-md-7" style="padding: 3px;">
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width: 100%;">Pan
-                                    <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                    <li><a href="#">Pan</a></li>
-                                    <li><a href="#">SFL</a></li>
-                                    <li><a href="#">Thin Scrap</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-5" style="padding: 3px;">
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width: 100%;">Large
-                                    <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                    <li><a href="#">Small</a></li>
-                                    <li><a href="#">Medium</a></li>
-                                    <li><a href="#">Large</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5" style="padding: 3px;">
-                                <button type="button" class="btn btn-primary" style="width: 100%;">CUSTOMIZE</button>
-                            </div>
-                            <div class="col-md-7" style="padding: 3px;">
-                                <button type="button" class="btn btn-danger" style="width: 100%;">ADD TO ORDER</button>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-                <div class="col-md-6" style="padding: 8px;border: 1px dotted rgba(255, 255, 255, 0.25098039215686274);background-color: #151414;">
-                    <div class="col-md-6" style="text-align: center;">
-                        <img src="images/slide1.jpg">
-                        <h3 style="    margin-top: 10px;color: #ffffff;">QAR 51.02</h3>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 style="margin-top: 10px;color: #ffffff;">Veg Pizza</h3>
-                        <p style="color: #ffffff;">Spices 1, Mango 1, Grash, Vegetable, Non Veg, Chicken, Mushroom, Paneer, Butter, Cheese</p>
-                        <div class="row" style="margin-bottom: 5px;">
-                            <div class="col-md-7" style="padding: 3px;">
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width: 100%;">Pan
-                                    <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                    <li><a href="#">Pan</a></li>
-                                    <li><a href="#">SFL</a></li>
-                                    <li><a href="#">Thin Scrap</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-5" style="padding: 3px;">
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width: 100%;">Large
-                                    <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                    <li><a href="#">Small</a></li>
-                                    <li><a href="#">Medium</a></li>
-                                    <li><a href="#">Large</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5" style="padding: 3px;">
-                                <button type="button" class="btn btn-primary" style="width: 100%;">CUSTOMIZE</button>
-                            </div>
-                            <div class="col-md-7" style="padding: 3px;">
-                                <button type="button" class="btn btn-danger" style="width: 100%;">ADD TO ORDER</button>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div>
 
-            <div class="row">
-                <div class="col-md-6" style="padding: 8px; border: 1px dotted rgba(255, 255, 255, 0.25098039215686274);background-color: #151414;">
+                <div v-for="(data,index) in dataList" :key="index" class="col-md-6" style="padding: 8px; border: 1px dotted rgba(255, 255, 255, 0.25098039215686274);background-color: #151414;">
                     <div class="col-md-6" style="text-align: center;">
                         <img src="images/slide1.jpg">
-                        <h3 style="margin-top: 10px; color: #ffffff;">QAR 51.02</h3>
+                        <h3 style="margin-top: 10px; color: #ffffff;">QAR {{data.price?data.price:data.large}}</h3>
                     </div>
                     <div class="col-md-6">
-                        <h3 style="margin-top: 10px;color: #ffffff;">Veg Pizza</h3>
-                        <p style="color: #ffffff;">Spices 1, Mango 1, Grash, Vegetable, Non Veg, Chicken, Mushroom, Paneer, Butter, Cheese</p>
+                        <h3 style="margin-top: 10px;color: #ffffff;">{{data.name}}</h3>
+                        <p style="color: #ffffff;">{{data.description && data.description.length>100?data.description.slice(0,90)+'...':data.description}}</p>
                         <div class="row" style="margin-bottom: 5px;">
                             <div class="col-md-7" style="padding: 3px;">
                                 <div class="dropdown">
@@ -218,9 +42,10 @@
                                     <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width: 100%;">Large
                                     <span class="caret"></span></button>
                                     <ul class="dropdown-menu">
-                                    <li><a href="#">Small</a></li>
-                                    <li><a href="#">Medium</a></li>
-                                    <li><a href="#">Large</a></li>
+                                    <li><a v-on:click="getPrice('small',data)">Small</a></li>
+                                    <li><a v-on:click="getPrice('medium',data)">Medium</a></li>
+                                    <li><a v-on:click="getPrice('large',data)">Large</a></li>
+                                  
                                     </ul>
                                 </div>
                             </div>
@@ -236,50 +61,8 @@
                         
                     </div>
                 </div>
-                <div class="col-md-6" style="padding: 8px;border: 1px dotted rgba(255, 255, 255, 0.25098039215686274);background-color: #151414;">
-                    <div class="col-md-6" style="text-align: center;">
-                        <img src="images/slide1.jpg">
-                        <h3 style="    margin-top: 10px;color: #ffffff;">QAR 51.02</h3>
-                    </div>
-                    <div class="col-md-6">
-                        <h3 style="margin-top: 10px;color: #ffffff;">Veg Pizza</h3>
-                        <p style="color: #ffffff;">Spices 1, Mango 1, Grash, Vegetable, Non Veg, Chicken, Mushroom, Paneer, Butter, Cheese</p>
-                        <div class="row" style="margin-bottom: 5px;">
-                            <div class="col-md-7" style="padding: 3px;">
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width: 100%;">Pan
-                                    <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                    <li><a href="#">Pan</a></li>
-                                    <li><a href="#">SFL</a></li>
-                                    <li><a href="#">Thin Scrap</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            <div class="col-md-5" style="padding: 3px;">
-                                <div class="dropdown">
-                                    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown" style="width: 100%;">Large
-                                    <span class="caret"></span></button>
-                                    <ul class="dropdown-menu">
-                                    <li><a href="#">Small</a></li>
-                                    <li><a href="#">Medium</a></li>
-                                    <li><a href="#">Large</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-5" style="padding: 3px;">
-                                <button type="button" class="btn btn-primary" style="width: 100%;">CUSTOMIZE</button>
-                            </div>
-                            <div class="col-md-7" style="padding: 3px;">
-                                <button type="button" class="btn btn-danger" style="width: 100%;">ADD TO ORDER</button>
-                            </div>
-                        </div>
-                        
-                    </div>
-                </div>
-            </div> -->
+            </div>
+           
             <div style="text-align: center; padding-top:10px; ">
                 <button type="button" class="btn btn-primary"><i class="fa fa-arrow-left"></i></button>
                 <button type="button" class="btn btn-primary">1</button>
@@ -303,6 +86,7 @@ export default {
           return {
 
               dataList: [], 
+              price:null,
                filters:
               {
                   property_location:'',
@@ -326,30 +110,40 @@ export default {
             },
         methods:
             {
-
                 initialize()
                 {
-
-                    this.getCommercial();
-
+                    this.getPizza();
                 },
 
-                async getCommercial(page = 1) 
+                getPrice(item,data)
+                {
+                    console.log(item,data)
+                    if(item=="small")
+                    {
+                       return data.price = data.small
+
+                    }
+                    if(item=="medium")
+                    {
+                       return data.price = data.medium
+
+                    }
+                    if(item=="large")
+                    {
+                       return data.price = data.large
+
+                    }
+                },
+
+                async getPizza() 
                         {
                             try 
                                 {
                                 let {data} = await axios({
-                                    method: "post",
-                                    url: "/app/fe/commercialist",
-                                    data: this.filters,
-                                    params: {
-                                        page
-                                    }
+                                    method: "get",
+                                    url: "/app/pizza",
                                 });
-                                this.dataList = data.data;
-                                this.meta_data.last_page = data.last_page;
-                                this.meta_data.current_page = data.current_page;
-                                this.meta_data.prev_page_url = data.prev_page_url;
+                                this.dataList = data;
                                 } 
                                 catch (e) 
                                 {

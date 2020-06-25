@@ -1,8 +1,11 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
+use App\Pizza;
+use Auth;
+use DB;
+use Illuminate\Support\Facades\Validator;
 
 class PizzaController extends Controller
 {
@@ -13,7 +16,9 @@ class PizzaController extends Controller
      */
     public function index()
     {
-        //
+        $data=Pizza::orderBy('id','DESC')
+        ->get();
+        return $data;
     }
 
     /**

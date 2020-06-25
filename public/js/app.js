@@ -2037,228 +2037,12 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
-//
 /* harmony default export */ __webpack_exports__["default"] = ({
   components: {},
   data: function data() {
     return {
       dataList: [],
+      price: null,
       filters: {
         property_location: '',
         category_id: '',
@@ -2277,52 +2061,58 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
   },
   methods: {
     initialize: function initialize() {
-      this.getCommercial();
+      this.getPizza();
     },
-    getCommercial: function getCommercial() {
-      var _arguments = arguments,
-          _this = this;
+    getPrice: function getPrice(item, data) {
+      console.log(item, data);
+
+      if (item == "small") {
+        return data.price = data.small;
+      }
+
+      if (item == "medium") {
+        return data.price = data.medium;
+      }
+
+      if (item == "large") {
+        return data.price = data.large;
+      }
+    },
+    getPizza: function getPizza() {
+      var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var page, _yield$axios, data;
+        var _yield$axios, data;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                page = _arguments.length > 0 && _arguments[0] !== undefined ? _arguments[0] : 1;
-                _context.prev = 1;
-                _context.next = 4;
+                _context.prev = 0;
+                _context.next = 3;
                 return axios({
-                  method: "post",
-                  url: "/app/fe/commercialist",
-                  data: _this.filters,
-                  params: {
-                    page: page
-                  }
+                  method: "get",
+                  url: "/app/pizza"
                 });
 
-              case 4:
+              case 3:
                 _yield$axios = _context.sent;
                 data = _yield$axios.data;
-                _this.dataList = data.data;
-                _this.meta_data.last_page = data.last_page;
-                _this.meta_data.current_page = data.current_page;
-                _this.meta_data.prev_page_url = data.prev_page_url;
-                _context.next = 15;
+                _this.dataList = data;
+                _context.next = 11;
                 break;
 
-              case 12:
-                _context.prev = 12;
-                _context.t0 = _context["catch"](1);
+              case 8:
+                _context.prev = 8;
+                _context.t0 = _context["catch"](0);
                 console.log('fail');
 
-              case 15:
+              case 11:
               case "end":
                 return _context.stop();
             }
           }
-        }, _callee, null, [[1, 12]]);
+        }, _callee, null, [[0, 8]]);
       }))();
     }
   }
@@ -39935,482 +39725,318 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _vm._m(0)
+  return _c("div", [
+    _c(
+      "div",
+      { staticStyle: { "padding-top": "5px", "padding-bottom": "5px" } },
+      [
+        _vm._m(0),
+        _vm._v(" "),
+        _c(
+          "div",
+          { staticClass: "row" },
+          _vm._l(_vm.dataList, function(data, index) {
+            return _c(
+              "div",
+              {
+                key: index,
+                staticClass: "col-md-6",
+                staticStyle: {
+                  padding: "8px",
+                  border: "1px dotted rgba(255, 255, 255, 0.25098039215686274)",
+                  "background-color": "#151414"
+                }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-md-6",
+                    staticStyle: { "text-align": "center" }
+                  },
+                  [
+                    _c("img", { attrs: { src: "images/slide1.jpg" } }),
+                    _vm._v(" "),
+                    _c(
+                      "h3",
+                      {
+                        staticStyle: { "margin-top": "10px", color: "#ffffff" }
+                      },
+                      [
+                        _vm._v(
+                          "QAR " + _vm._s(data.price ? data.price : data.large)
+                        )
+                      ]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-6" }, [
+                  _c(
+                    "h3",
+                    { staticStyle: { "margin-top": "10px", color: "#ffffff" } },
+                    [_vm._v(_vm._s(data.name))]
+                  ),
+                  _vm._v(" "),
+                  _c("p", { staticStyle: { color: "#ffffff" } }, [
+                    _vm._v(
+                      _vm._s(
+                        data.description && data.description.length > 100
+                          ? data.description.slice(0, 90) + "..."
+                          : data.description
+                      )
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "div",
+                    {
+                      staticClass: "row",
+                      staticStyle: { "margin-bottom": "5px" }
+                    },
+                    [
+                      _vm._m(1, true),
+                      _vm._v(" "),
+                      _c(
+                        "div",
+                        {
+                          staticClass: "col-md-5",
+                          staticStyle: { padding: "3px" }
+                        },
+                        [
+                          _c("div", { staticClass: "dropdown" }, [
+                            _vm._m(2, true),
+                            _vm._v(" "),
+                            _c("ul", { staticClass: "dropdown-menu" }, [
+                              _c("li", [
+                                _c(
+                                  "a",
+                                  {
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.getPrice("small", data)
+                                      }
+                                    }
+                                  },
+                                  [_vm._v("Small")]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _c(
+                                  "a",
+                                  {
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.getPrice("medium", data)
+                                      }
+                                    }
+                                  },
+                                  [_vm._v("Medium")]
+                                )
+                              ]),
+                              _vm._v(" "),
+                              _c("li", [
+                                _c(
+                                  "a",
+                                  {
+                                    on: {
+                                      click: function($event) {
+                                        return _vm.getPrice("large", data)
+                                      }
+                                    }
+                                  },
+                                  [_vm._v("Large")]
+                                )
+                              ])
+                            ])
+                          ])
+                        ]
+                      )
+                    ]
+                  ),
+                  _vm._v(" "),
+                  _vm._m(3, true)
+                ])
+              ]
+            )
+          }),
+          0
+        ),
+        _vm._v(" "),
+        _vm._m(4)
+      ]
+    )
+  ])
 }
 var staticRenderFns = [
   function() {
     var _vm = this
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
-    return _c("div", [
+    return _c("div", { staticClass: "row" }, [
       _c(
         "div",
-        { staticStyle: { "padding-top": "5px", "padding-bottom": "5px" } },
+        {
+          staticClass: "col-md-12",
+          staticStyle: {
+            "margin-bottom": "5px",
+            padding: "8px",
+            border: "2px solid rgba(255, 255, 255, 0.25098039215686274)",
+            "background-color": "#151414"
+          }
+        },
         [
-          _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              {
-                staticClass: "col-md-12",
-                staticStyle: {
-                  "margin-bottom": "5px",
-                  padding: "8px",
-                  border: "2px solid rgba(255, 255, 255, 0.25098039215686274)",
-                  "background-color": "#151414"
-                }
-              },
-              [
-                _c("div", { staticClass: "col-md-12" }, [
-                  _c("ul", { staticClass: "category" }, [
-                    _c("li", { staticClass: "active" }, [_vm._v(" ALL")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("BEEF")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("CHICKEN")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("VEGETARIAN")]),
-                    _vm._v(" "),
-                    _c("li", [_vm._v("SPECIALITY")])
-                  ])
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c("div", { staticClass: "row" }, [
-            _c(
-              "div",
-              {
-                staticClass: "col-md-6",
-                staticStyle: {
-                  padding: "8px",
-                  border: "1px dotted rgba(255, 255, 255, 0.25098039215686274)",
-                  "background-color": "#151414"
-                }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-md-6",
-                    staticStyle: { "text-align": "center" }
-                  },
-                  [
-                    _c("img", { attrs: { src: "images/slide1.jpg" } }),
-                    _vm._v(" "),
-                    _c(
-                      "h3",
-                      {
-                        staticStyle: { "margin-top": "10px", color: "#ffffff" }
-                      },
-                      [_vm._v("QAR 51.02")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c(
-                    "h3",
-                    { staticStyle: { "margin-top": "10px", color: "#ffffff" } },
-                    [_vm._v("Veg Pizza")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticStyle: { color: "#ffffff" } }, [
-                    _vm._v(
-                      "Spices 1, Mango 1, Grash, Vegetable, Non Veg, Chicken, Mushroom, Paneer, Butter, Cheese"
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "row",
-                      staticStyle: { "margin-bottom": "5px" }
-                    },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "col-md-7",
-                          staticStyle: { padding: "3px" }
-                        },
-                        [
-                          _c("div", { staticClass: "dropdown" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-default dropdown-toggle",
-                                staticStyle: { width: "100%" },
-                                attrs: {
-                                  type: "button",
-                                  "data-toggle": "dropdown"
-                                }
-                              },
-                              [
-                                _vm._v("Pan\n                                "),
-                                _c("span", { staticClass: "caret" })
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("ul", { staticClass: "dropdown-menu" }, [
-                              _c("li", [
-                                _c("a", { attrs: { href: "#" } }, [
-                                  _vm._v("Pan")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("li", [
-                                _c("a", { attrs: { href: "#" } }, [
-                                  _vm._v("SFL")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("li", [
-                                _c("a", { attrs: { href: "#" } }, [
-                                  _vm._v("Thin Scrap")
-                                ])
-                              ])
-                            ])
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "col-md-5",
-                          staticStyle: { padding: "3px" }
-                        },
-                        [
-                          _c("div", { staticClass: "dropdown" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-default dropdown-toggle",
-                                staticStyle: { width: "100%" },
-                                attrs: {
-                                  type: "button",
-                                  "data-toggle": "dropdown"
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "Large\n                                "
-                                ),
-                                _c("span", { staticClass: "caret" })
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("ul", { staticClass: "dropdown-menu" }, [
-                              _c("li", [
-                                _c("a", { attrs: { href: "#" } }, [
-                                  _vm._v("Small")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("li", [
-                                _c("a", { attrs: { href: "#" } }, [
-                                  _vm._v("Medium")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("li", [
-                                _c("a", { attrs: { href: "#" } }, [
-                                  _vm._v("Large")
-                                ])
-                              ])
-                            ])
-                          ])
-                        ]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "col-md-5",
-                        staticStyle: { padding: "3px" }
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary",
-                            staticStyle: { width: "100%" },
-                            attrs: { type: "button" }
-                          },
-                          [_vm._v("CUSTOMIZE")]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "col-md-7",
-                        staticStyle: { padding: "3px" }
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-danger",
-                            staticStyle: { width: "100%" },
-                            attrs: { type: "button" }
-                          },
-                          [_vm._v("ADD TO ORDER")]
-                        )
-                      ]
-                    )
-                  ])
-                ])
-              ]
-            ),
-            _vm._v(" "),
-            _c(
-              "div",
-              {
-                staticClass: "col-md-6",
-                staticStyle: {
-                  padding: "8px",
-                  border: "1px dotted rgba(255, 255, 255, 0.25098039215686274)",
-                  "background-color": "#151414"
-                }
-              },
-              [
-                _c(
-                  "div",
-                  {
-                    staticClass: "col-md-6",
-                    staticStyle: { "text-align": "center" }
-                  },
-                  [
-                    _c("img", { attrs: { src: "images/slide1.jpg" } }),
-                    _vm._v(" "),
-                    _c(
-                      "h3",
-                      {
-                        staticStyle: { "margin-top": "10px", color: "#ffffff" }
-                      },
-                      [_vm._v("QAR 51.02")]
-                    )
-                  ]
-                ),
-                _vm._v(" "),
-                _c("div", { staticClass: "col-md-6" }, [
-                  _c(
-                    "h3",
-                    { staticStyle: { "margin-top": "10px", color: "#ffffff" } },
-                    [_vm._v("Veg Pizza")]
-                  ),
-                  _vm._v(" "),
-                  _c("p", { staticStyle: { color: "#ffffff" } }, [
-                    _vm._v(
-                      "Spices 1, Mango 1, Grash, Vegetable, Non Veg, Chicken, Mushroom, Paneer, Butter, Cheese"
-                    )
-                  ]),
-                  _vm._v(" "),
-                  _c(
-                    "div",
-                    {
-                      staticClass: "row",
-                      staticStyle: { "margin-bottom": "5px" }
-                    },
-                    [
-                      _c(
-                        "div",
-                        {
-                          staticClass: "col-md-7",
-                          staticStyle: { padding: "3px" }
-                        },
-                        [
-                          _c("div", { staticClass: "dropdown" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-default dropdown-toggle",
-                                staticStyle: { width: "100%" },
-                                attrs: {
-                                  type: "button",
-                                  "data-toggle": "dropdown"
-                                }
-                              },
-                              [
-                                _vm._v("Pan\n                                "),
-                                _c("span", { staticClass: "caret" })
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("ul", { staticClass: "dropdown-menu" }, [
-                              _c("li", [
-                                _c("a", { attrs: { href: "#" } }, [
-                                  _vm._v("Pan")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("li", [
-                                _c("a", { attrs: { href: "#" } }, [
-                                  _vm._v("SFL")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("li", [
-                                _c("a", { attrs: { href: "#" } }, [
-                                  _vm._v("Thin Scrap")
-                                ])
-                              ])
-                            ])
-                          ])
-                        ]
-                      ),
-                      _vm._v(" "),
-                      _c(
-                        "div",
-                        {
-                          staticClass: "col-md-5",
-                          staticStyle: { padding: "3px" }
-                        },
-                        [
-                          _c("div", { staticClass: "dropdown" }, [
-                            _c(
-                              "button",
-                              {
-                                staticClass: "btn btn-default dropdown-toggle",
-                                staticStyle: { width: "100%" },
-                                attrs: {
-                                  type: "button",
-                                  "data-toggle": "dropdown"
-                                }
-                              },
-                              [
-                                _vm._v(
-                                  "Large\n                                "
-                                ),
-                                _c("span", { staticClass: "caret" })
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c("ul", { staticClass: "dropdown-menu" }, [
-                              _c("li", [
-                                _c("a", { attrs: { href: "#" } }, [
-                                  _vm._v("Small")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("li", [
-                                _c("a", { attrs: { href: "#" } }, [
-                                  _vm._v("Medium")
-                                ])
-                              ]),
-                              _vm._v(" "),
-                              _c("li", [
-                                _c("a", { attrs: { href: "#" } }, [
-                                  _vm._v("Large")
-                                ])
-                              ])
-                            ])
-                          ])
-                        ]
-                      )
-                    ]
-                  ),
-                  _vm._v(" "),
-                  _c("div", { staticClass: "row" }, [
-                    _c(
-                      "div",
-                      {
-                        staticClass: "col-md-5",
-                        staticStyle: { padding: "3px" }
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-primary",
-                            staticStyle: { width: "100%" },
-                            attrs: { type: "button" }
-                          },
-                          [_vm._v("CUSTOMIZE")]
-                        )
-                      ]
-                    ),
-                    _vm._v(" "),
-                    _c(
-                      "div",
-                      {
-                        staticClass: "col-md-7",
-                        staticStyle: { padding: "3px" }
-                      },
-                      [
-                        _c(
-                          "button",
-                          {
-                            staticClass: "btn btn-danger",
-                            staticStyle: { width: "100%" },
-                            attrs: { type: "button" }
-                          },
-                          [_vm._v("ADD TO ORDER")]
-                        )
-                      ]
-                    )
-                  ])
-                ])
-              ]
-            )
-          ]),
-          _vm._v(" "),
-          _c(
-            "div",
-            { staticStyle: { "text-align": "center", "padding-top": "10px" } },
-            [
-              _c(
-                "button",
-                { staticClass: "btn btn-primary", attrs: { type: "button" } },
-                [_c("i", { staticClass: "fa fa-arrow-left" })]
-              ),
+          _c("div", { staticClass: "col-md-12" }, [
+            _c("ul", { staticClass: "category" }, [
+              _c("li", { staticClass: "active" }, [_vm._v(" ALL")]),
               _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "btn btn-primary", attrs: { type: "button" } },
-                [_vm._v("1")]
-              ),
+              _c("li", [_vm._v("BEEF")]),
               _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "btn btn-primary", attrs: { type: "button" } },
-                [_vm._v("2")]
-              ),
+              _c("li", [_vm._v("CHICKEN")]),
               _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "btn btn-primary", attrs: { type: "button" } },
-                [_vm._v("...")]
-              ),
+              _c("li", [_vm._v("VEGETARIAN")]),
               _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "btn btn-primary", attrs: { type: "button" } },
-                [_vm._v("30")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "btn btn-primary", attrs: { type: "button" } },
-                [_vm._v("31")]
-              ),
-              _vm._v(" "),
-              _c(
-                "button",
-                { staticClass: "btn btn-primary", attrs: { type: "button" } },
-                [_c("i", { staticClass: "fa fa-arrow-right" })]
-              )
-            ]
-          )
+              _c("li", [_vm._v("SPECIALITY")])
+            ])
+          ])
         ]
       )
     ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticClass: "col-md-7", staticStyle: { padding: "3px" } },
+      [
+        _c("div", { staticClass: "dropdown" }, [
+          _c(
+            "button",
+            {
+              staticClass: "btn btn-default dropdown-toggle",
+              staticStyle: { width: "100%" },
+              attrs: { type: "button", "data-toggle": "dropdown" }
+            },
+            [
+              _vm._v("Pan\n                                "),
+              _c("span", { staticClass: "caret" })
+            ]
+          ),
+          _vm._v(" "),
+          _c("ul", { staticClass: "dropdown-menu" }, [
+            _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("Pan")])]),
+            _vm._v(" "),
+            _c("li", [_c("a", { attrs: { href: "#" } }, [_vm._v("SFL")])]),
+            _vm._v(" "),
+            _c("li", [
+              _c("a", { attrs: { href: "#" } }, [_vm._v("Thin Scrap")])
+            ])
+          ])
+        ])
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "button",
+      {
+        staticClass: "btn btn-default dropdown-toggle",
+        staticStyle: { width: "100%" },
+        attrs: { type: "button", "data-toggle": "dropdown" }
+      },
+      [
+        _vm._v("Large\n                                "),
+        _c("span", { staticClass: "caret" })
+      ]
+    )
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", { staticClass: "row" }, [
+      _c("div", { staticClass: "col-md-5", staticStyle: { padding: "3px" } }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-primary",
+            staticStyle: { width: "100%" },
+            attrs: { type: "button" }
+          },
+          [_vm._v("CUSTOMIZE")]
+        )
+      ]),
+      _vm._v(" "),
+      _c("div", { staticClass: "col-md-7", staticStyle: { padding: "3px" } }, [
+        _c(
+          "button",
+          {
+            staticClass: "btn btn-danger",
+            staticStyle: { width: "100%" },
+            attrs: { type: "button" }
+          },
+          [_vm._v("ADD TO ORDER")]
+        )
+      ])
+    ])
+  },
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c(
+      "div",
+      { staticStyle: { "text-align": "center", "padding-top": "10px" } },
+      [
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "button" } },
+          [_c("i", { staticClass: "fa fa-arrow-left" })]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "button" } },
+          [_vm._v("1")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "button" } },
+          [_vm._v("2")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "button" } },
+          [_vm._v("...")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "button" } },
+          [_vm._v("30")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "button" } },
+          [_vm._v("31")]
+        ),
+        _vm._v(" "),
+        _c(
+          "button",
+          { staticClass: "btn btn-primary", attrs: { type: "button" } },
+          [_c("i", { staticClass: "fa fa-arrow-right" })]
+        )
+      ]
+    )
   }
 ]
 render._withStripped = true
