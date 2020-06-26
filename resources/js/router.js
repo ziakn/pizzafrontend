@@ -43,7 +43,7 @@ export default new Router({
             component: frontend,
             meta: 
             {
-            title: 'AJT',
+            title: 'Innoscripta',
             type: typeFront,
             }
 

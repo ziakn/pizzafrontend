@@ -10,6 +10,7 @@ const store = new Vuex.Store({
         load: false,
         token: localStorage.getItem('token') || null,
         notifications: [],
+        cartData:[],
     },
 
     /*All getters*/
@@ -46,6 +47,9 @@ const store = new Vuex.Store({
         },
         setting(state, setting) {
             state.setting = setting
+        },
+        getCartData(state, data) {
+            state.cartData.push(data)
         },
 
     },
