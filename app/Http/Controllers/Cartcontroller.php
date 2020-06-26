@@ -1,24 +1,20 @@
 <?php
 
 namespace App\Http\Controllers;
+
+use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Cart;
-use App\OrderItem;
-use App\Order;
 use Auth;
 use DB;
 use Illuminate\Support\Facades\Validator;
 
-class OrderController extends Controller
+class Cartcontroller extends Controller
 {
-     /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        
+        $data=Cart::get();
+        return $data;
     }
 
     /**
@@ -37,64 +33,47 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-        public function store(Request $request)
+    public function store(Request $request)
     {
         $response=array();
         $response['status']=false;
         $response['data'] ='';
-        dd($request->all());
+        // dd($request->all());
         $validator = Validator::make(
             $request->all(), [
-                'name' => 'required|string|max:255',
-                'number' => 'required|string|max:255',
-                'address' => 'required|string|max:255',
-                ]);
+            'name' => 'required|string|max:255',
+        ]);
         if ($validator->fails()) {
             $response['data'] =$validator->errors();
-            return response()->json($response,400);
+            return response()->json($response,200);
+        }
+        if($request->price=='')
+            {
+                $request->price= $request->large;
+            }
+        if($request->original_price=='')
+        {
+            $request->original_price= $request->large;
         }
         DB::beginTransaction();
-
+            
         try {
-            $response['data']=Order::create(
+            $create=Cart::create(
                 [
                     "user_id" => 0,
                     "guest_id" => $request->guest_id,
-                    "total_price" => $request->total_price,
-                    "type" => "Online Order",
+                    "pizza_id" => $request->id,
                     "name" => $request->name,
-                    "number" => $request->number,
-                    "address" => $request->address.', '.$request->state.', '.$request->city.', '.$request->country,
-                    "note" => $request->note,
-                    "lat" => 0,
-                    "lon" => 0,
+                    "image" => $request->image,
+                    "size" => $request->size,
+                    "type" => $request->type,
+                    "price" => $request->price,
+                    "quantity" => $request->count,
+                    "original_price" => $request->original_price,
                 ]
             );     
-            $cart=Cart::where('guest_id',$request->guest_id)->get();
-
-            if(count($cart))
-            {
-                foreach($cart as $item)
-                {
-                    OrderItem::create([
-                        'order_id' => $response['data']->id,
-                        'pizza_id' => $item->pizza_id,
-                        'name' => $item->name,
-                        'size' => $item->size,
-                        'type' => $item->type,
-                        'price' => $item->price,
-                        'quantity' => $item->quantity,
-                        'note' => $item->note,
-                    ]);
-                }
-            }
-            else
-            {
-                $response['status'] = false;
-                $response['data']="Empty cart";
-            }
-            $cart=Cart::where('guest_id',$request->guest_id)->delete();      
             DB::commit();
+            $response['data']=Cart::find($create->id);
             $response['status'] = true;
         } catch (\Exception $e) {
             $response['data']=$e->getMessage()."line".$e->getLine();
@@ -102,7 +81,6 @@ class OrderController extends Controller
         }
 
         return response()->json($response);
-    
     }
 
     /**
@@ -113,8 +91,7 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        $data=Order::with('item')->find($id);
-        // dd($data);
+        $data=Cart::where('guest_id',$id)->get();
         return $data;
     }
 
@@ -138,7 +115,28 @@ class OrderController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $response=array();
+        $response['status']=false;
+        $response['data'] ='';
+        // dd($request->all());
+
+        DB::beginTransaction();
+
+        try {
+            $response['data']=Cart::where('id',$id)->update(
+                [
+                    
+                    "quantity" => $request->quantity,
+                ]
+            );     
+            DB::commit();
+            $response['status'] = true;
+        } catch (\Exception $e) {
+            $response['data']=$e->getMessage()."line".$e->getLine();
+            DB::rollback();
+        }
+
+        return response()->json($response);
     }
 
     /**
@@ -149,6 +147,7 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $data=Cart::where('id',$id)->delete();
+        return $data;
     }
 }

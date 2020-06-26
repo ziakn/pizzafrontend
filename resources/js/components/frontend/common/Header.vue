@@ -38,43 +38,42 @@
 
 				<div class="modal-body">
 					
-                    <div v-for="(data,index) in cartData" :key="index" class="col-md-12" style="padding: 8px; border: 1px dotted rgba(255, 255, 255, 0.25098039215686274);background-color: #151414;">
-                    <div class="col-md-6" style="text-align: center;">
+                    <div v-for="(data,index) in cartData" :key="index" class="col-md-12" style="height: 120px; padding: 4px; border: 1px dotted rgba(255, 255, 255, 0.25098039215686274);background-color: #151414;">
+                   <button @click="removeProduct(index)" type="button" class="close"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div class="col-md-3" style="text-align: center;">
                         <img :src="data.image" alt="">
-                        <h3 style="margin-top: 10px; color: #ffffff;">USD {{data.price?data.price:data.large}}</h3>
-                        <div style="margin-top: 10px; color: #ffffff;"># {{ data.count }}<br>
+                        <h6 style="margin-top: 5px; color: #ffffff;">Price {{data.price?data.price:data.large}}</h6>
+                        
+                    </div>
+                    <div class="col-md-6">
+                        <h4 style="margin-top: 5px;color: #ffffff;">{{data.name}}</h4>
+                        <div class="col-md-7" style="padding: 5px; color: #ffffff;">
+                                    {{data.type}} / {{data.size}}
+                            </div>
+                            <div style="margin-top: 10px; color: #ffffff;"># {{ data.quantity }}<br>
                             <button v-on:click.prevent="increment(data)" class="btn btn-default dropdown-toggle" >+</button>
                             <button v-on:click.prevent="decrement(data)" class="btn btn-default dropdown-toggle">-</button>
                             </div>
                     </div>
-                    <div class="col-md-6">
-                        <h3 style="margin-top: 10px;color: #ffffff;">{{data.name}}</h3>
-                     
-                        <div class="row" style="margin-bottom: 5px;">
-                            <div class="col-md-7" style="padding: 3px;">
-                                <div class="dropdown">
-                                    <select @change="getPan(data)"  v-model="data.type" class="selectpicker btn btn-default dropdown-toggle">
-                                     <option value="pan">Pan</option>
-                                    <option value="sfl">SFL</option>
-                                    <option value="thin">Thin Scrap</option>
-                                    </select>
-                                </div>
-                            </div>
-                            <div class="col-md-5" style="padding: 3px;">
-                                <select @change="getPrice(data)"  v-model="data.size" class="selectpicker btn btn-default dropdown-toggle">
-                                     
-                                <option value="large">Large</option>
-                                <option value="medium">Medium</option>
-                                <option value="small">Small</option>
-                                </select>
-
-                            </div>
-                        </div>
-                        
-                    </div>
                 </div>
 				</div>
-
+<footer class="demo-footer color: #ffffff;" >
+     <h6 style="color: #ffffff;"> Payment type : <select @change="total()" v-model="currency"  class="selectpicker btn btn-default dropdown-toggle">
+                                     
+                                <option value="USD">USD</option>
+                                <option value="EURO">EURO</option>
+                                </select>
+                                </h6>
+	<a  target="_blank">Total Price : {{total()}}</a>
+    <button  class="selectpicker btn btn-default dropdown-toggle" style=" background-color: red; /* Green */
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;"  @click="getCheckOut()">checkout </button>
+</footer>
 			</div><!-- modal-content -->
 		</div><!-- modal-dialog -->
 	</div><!-- modal -->
@@ -84,30 +83,134 @@
  export default {
         data: () => ({
 
-            
+           dataList:[],
+             price:null,
+               count: 1,
+               currency:"USD",
         }),
 
      
         computed: {
             cartData()
             {
-                return this.$store.state.cartData;
+                 return this.$store.state.cartData;
+                
             }
         },
 watch:
 {
     
 },
+created() {
+           this.initialize()
+        },
 
         methods: {
             handleGoToMenu(d){
                 return d
             },
+            total()
+            {
+                let sum = 0;
+                   
+                if(this.currency=="USD")
+                {
+                     return this.cartData.reduce((sum, item) => sum + item.price, 0);
+                }
+                if(this.currency=="EURO")
+                {
+                    return this.cartData.reduce((sum, item) => sum + (item.price*0.89), 0);
+                    
+                }
+            },
+            initialize()
+            {
+                this.getPizza();
+            },
+
+            getPrice(data)
+                {
+                       return data.price = data.original_price
+                },
+
+        increment (data) 
+        {
+            data.quantity++;
+                return data.price = data.original_price * data.quantity
+            
+        },
+
+        decrement (data) 
+            {
+                    if(data.quantity > 1)
+                    {
+
+                     data.quantity-- ;
+                      return data.price = data.original_price * data.quantity
+                    }
+                   
+                        return data.price = data.original_price * data.quantity
+                
+            },
+
+            removeProduct(index)
+            {
+                this.cartData.splice(index, 1)
+            },
+
+            
+            async getPizza() 
+                        {
+                            try 
+                                {
+                                let {data} = await axios({
+                                    method: "get",
+                                    url: "/app/cart",
+                                });
+                                this.dataList = data;
+                                for(let p of this.dataList)
+                                {
+                                    this.cartData.push(p)
+                                }
+                                } 
+                                catch (e) 
+                                {
+                                    console.log('fail')
+                                }
+                        },
+
+
+
+            async getCheckOut()
+            {
+                console.log(this.cartData);
+                console.log(this.total());
+                let formData = []
+                formData = this.cartData
+                formData.total = this.total()
+                //  this.$store.commit('getCartData', data)
+                 try 
+                                {
+                                let {data} = await axios({
+                                    method: "post",
+                                    url: "/app/order",
+                                    data:formData
+                                });
+                               if (data.status) {
+                                this.snacks("Successfully Added", "green");
+                                this.close();
+                            } else {
+                                this.snacks("Failed! "+data.data, "red");
+                                this.loading = false;
+                            }
+                        } catch (e) {
+                            this.snacks("Failed! "+e, "red");
+                            this.loading = false;
+                        }
+            }
         },
         
-        created() {
-           
-        },
+        
     };
 </script>
 <style scoped>

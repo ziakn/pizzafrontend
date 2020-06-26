@@ -51,7 +51,7 @@
                         </div>
                         <div class="row">
                             <div class="col-md-5" style="padding: 3px;">
-                                <button type="button" class="btn btn-primary" style="width: 100%;">CUSTOMIZE</button>
+                                
                             </div>
                             <div class="col-md-7" style="padding: 3px;">
                                 <button type="button" class="btn btn-danger" style="width: 100%;" @click="sendtoCart(data)">ADD TO ORDER</button>
@@ -62,7 +62,7 @@
                 </div>
             </div>
            
-            <div style="text-align: center; padding-top:10px; ">
+            <!-- <div style="text-align: center; padding-top:10px; ">
                 <button type="button" class="btn btn-primary"><i class="fa fa-arrow-left"></i></button>
                 <button type="button" class="btn btn-primary">1</button>
                 <button type="button" class="btn btn-primary">2</button>
@@ -70,7 +70,7 @@
                 <button type="button" class="btn btn-primary">30</button>
                 <button type="button" class="btn btn-primary">31</button>
                 <button type="button" class="btn btn-primary"><i class="fa fa-arrow-right"></i></button>
-            </div>
+            </div> -->
         </div>
     
 	
@@ -90,18 +90,7 @@ export default {
               price:null,
                count: 1,
                currency:"USD",
-               filters:
-              {
-                  property_location:'',
-                  category_id:'',
-                  rentType:[],
-                  show:50,
-              },
-              meta_data: {       
-                   last_page: null,      
-                    current_page: 1,       
-                   prev_page_url: null    
-                    },
+              
           }
         },
 
@@ -122,18 +111,21 @@ export default {
                 {
                     if(data.size=="small")
                     {
+                        data.original_price=data.small
                        return data.price = data.small
-
+                                
                     }
                     if(data.size=="medium")
                     {
+                        data.original_price=data.medium
                        return data.price = data.medium
-
+                          
                     }
                     if(data.size=="large")
                     {
+                        data.original_price=data.large
                        return data.price = data.large
-
+                         
                     }
                 },
 
@@ -143,15 +135,21 @@ export default {
             data.count++;
             if(data.size=="large")
             {
+                data.original_price=data.large
                 return data.price = data.large * data.count
+                 
             }
              if(data.size=="medium")
             {
+                 data.original_price=data.medium
                 return data.price = data.medium * data.count
+                
             }
              if(data.size=="small")
             {
+                data.original_price =data.small
                 return data.price = data.small * data.count
+                 
             }
             
         },
@@ -164,14 +162,17 @@ export default {
                     }
                     if(data.size=="large")
                     {
+                        data.original_price=data.large
                         return data.price = data.large * data.count
                     }
                     if(data.size=="medium")
                     {
+                        data.original_price=data.medium
                         return data.price = data.medium * data.count
                     }
                     if(data.size=="small")
                     {
+                         data.original_price =data.small
                         return data.price = data.small * data.count
                     }
             },
@@ -198,9 +199,31 @@ export default {
                     }
             },
 
-            sendtoCart(data)
+           async sendtoCart(data)
             {
-                 this.$store.commit('getCartData', data)
+                console.log(data)
+                let formData = []
+                formData = data
+                //  this.$store.commit('getCartData', data)
+                 try 
+                                {
+                                let {data} = await axios({
+                                    method: "post",
+                                    url: "/app/cart",
+                                    data:formData
+                                });
+                               if (data.status) {
+                                this.$store.commit('getCartData', data.data)
+                                this.snacks("Successfully Added", "green");
+                                this.close();
+                            } else {
+                                this.snacks("Failed! "+data.data, "red");
+                                this.loading = false;
+                            }
+                        } catch (e) {
+                            this.snacks("Failed! "+e, "red");
+                            this.loading = false;
+                        }
             },
 
                 async getPizza() 

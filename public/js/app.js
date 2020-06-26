@@ -2045,18 +2045,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       dataList: [],
       price: null,
       count: 1,
-      currency: "USD",
-      filters: {
-        property_location: '',
-        category_id: '',
-        rentType: [],
-        show: 50
-      },
-      meta_data: {
-        last_page: null,
-        current_page: 1,
-        prev_page_url: null
-      }
+      currency: "USD"
     };
   },
   created: function created() {
@@ -2068,14 +2057,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
     },
     getPrice: function getPrice(data) {
       if (data.size == "small") {
+        data.original_price = data.small;
         return data.price = data.small;
       }
 
       if (data.size == "medium") {
+        data.original_price = data.medium;
         return data.price = data.medium;
       }
 
       if (data.size == "large") {
+        data.original_price = data.large;
         return data.price = data.large;
       }
     },
@@ -2084,14 +2076,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       data.count++;
 
       if (data.size == "large") {
+        data.original_price = data.large;
         return data.price = data.large * data.count;
       }
 
       if (data.size == "medium") {
+        data.original_price = data.medium;
         return data.price = data.medium * data.count;
       }
 
       if (data.size == "small") {
+        data.original_price = data.small;
         return data.price = data.small * data.count;
       }
     },
@@ -2101,14 +2096,17 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
 
       if (data.size == "large") {
+        data.original_price = data.large;
         return data.price = data.large * data.count;
       }
 
       if (data.size == "medium") {
+        data.original_price = data.medium;
         return data.price = data.medium * data.count;
       }
 
       if (data.size == "small") {
+        data.original_price = data.small;
         return data.price = data.small * data.count;
       }
     },
@@ -2129,43 +2127,97 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
       }
     },
     sendtoCart: function sendtoCart(data) {
-      this.$store.commit('getCartData', data);
-    },
-    getPizza: function getPizza() {
       var _this = this;
 
       return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
-        var _yield$axios, data;
+        var formData, _yield$axios, _data;
 
         return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
           while (1) {
             switch (_context.prev = _context.next) {
               case 0:
-                _context.prev = 0;
-                _context.next = 3;
+                console.log(data);
+                formData = [];
+                formData = data; //  this.$store.commit('getCartData', data)
+
+                _context.prev = 3;
+                _context.next = 6;
+                return axios({
+                  method: "post",
+                  url: "/app/cart",
+                  data: formData
+                });
+
+              case 6:
+                _yield$axios = _context.sent;
+                _data = _yield$axios.data;
+
+                if (_data.status) {
+                  _this.$store.commit('getCartData', _data.data);
+
+                  _this.snacks("Successfully Added", "green");
+
+                  _this.close();
+                } else {
+                  _this.snacks("Failed! " + _data.data, "red");
+
+                  _this.loading = false;
+                }
+
+                _context.next = 15;
+                break;
+
+              case 11:
+                _context.prev = 11;
+                _context.t0 = _context["catch"](3);
+
+                _this.snacks("Failed! " + _context.t0, "red");
+
+                _this.loading = false;
+
+              case 15:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[3, 11]]);
+      }))();
+    },
+    getPizza: function getPizza() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var _yield$axios2, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                _context2.prev = 0;
+                _context2.next = 3;
                 return axios({
                   method: "get",
                   url: "/app/pizza"
                 });
 
               case 3:
-                _yield$axios = _context.sent;
-                data = _yield$axios.data;
-                _this.dataList = data;
-                _context.next = 11;
+                _yield$axios2 = _context2.sent;
+                data = _yield$axios2.data;
+                _this2.dataList = data;
+                _context2.next = 11;
                 break;
 
               case 8:
-                _context.prev = 8;
-                _context.t0 = _context["catch"](0);
+                _context2.prev = 8;
+                _context2.t0 = _context2["catch"](0);
                 console.log('fail');
 
               case 11:
               case "end":
-                return _context.stop();
+                return _context2.stop();
             }
           }
-        }, _callee, null, [[0, 8]]);
+        }, _callee2, null, [[0, 8]]);
       }))();
     }
   }
@@ -2182,7 +2234,20 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
 "use strict";
 __webpack_require__.r(__webpack_exports__);
-//
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @babel/runtime/regenerator */ "./node_modules/@babel/runtime/regenerator/index.js");
+/* harmony import */ var _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0__);
+
+
+function _createForOfIteratorHelper(o, allowArrayLike) { var it; if (typeof Symbol === "undefined" || o[Symbol.iterator] == null) { if (Array.isArray(o) || (it = _unsupportedIterableToArray(o)) || allowArrayLike && o && typeof o.length === "number") { if (it) o = it; var i = 0; var F = function F() {}; return { s: F, n: function n() { if (i >= o.length) return { done: true }; return { done: false, value: o[i++] }; }, e: function e(_e) { throw _e; }, f: F }; } throw new TypeError("Invalid attempt to iterate non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method."); } var normalCompletion = true, didErr = false, err; return { s: function s() { it = o[Symbol.iterator](); }, n: function n() { var step = it.next(); normalCompletion = step.done; return step; }, e: function e(_e2) { didErr = true; err = _e2; }, f: function f() { try { if (!normalCompletion && it["return"] != null) it["return"](); } finally { if (didErr) throw err; } } }; }
+
+function _unsupportedIterableToArray(o, minLen) { if (!o) return; if (typeof o === "string") return _arrayLikeToArray(o, minLen); var n = Object.prototype.toString.call(o).slice(8, -1); if (n === "Object" && o.constructor) n = o.constructor.name; if (n === "Map" || n === "Set") return Array.from(o); if (n === "Arguments" || /^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(n)) return _arrayLikeToArray(o, minLen); }
+
+function _arrayLikeToArray(arr, len) { if (len == null || len > arr.length) len = arr.length; for (var i = 0, arr2 = new Array(len); i < len; i++) { arr2[i] = arr[i]; } return arr2; }
+
+function asyncGeneratorStep(gen, resolve, reject, _next, _throw, key, arg) { try { var info = gen[key](arg); var value = info.value; } catch (error) { reject(error); return; } if (info.done) { resolve(value); } else { Promise.resolve(value).then(_next, _throw); } }
+
+function _asyncToGenerator(fn) { return function () { var self = this, args = arguments; return new Promise(function (resolve, reject) { var gen = fn.apply(self, args); function _next(value) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "next", value); } function _throw(err) { asyncGeneratorStep(gen, resolve, reject, _next, _throw, "throw", err); } _next(undefined); }); }; }
+
 //
 //
 //
@@ -2266,7 +2331,12 @@ __webpack_require__.r(__webpack_exports__);
 //
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
-    return {};
+    return {
+      dataList: [],
+      price: null,
+      count: 1,
+      currency: "USD"
+    };
   },
   computed: {
     cartData: function cartData() {
@@ -2274,12 +2344,158 @@ __webpack_require__.r(__webpack_exports__);
     }
   },
   watch: {},
+  created: function created() {
+    this.initialize();
+  },
   methods: {
     handleGoToMenu: function handleGoToMenu(d) {
       return d;
+    },
+    total: function total() {
+      var sum = 0;
+
+      if (this.currency == "USD") {
+        return this.cartData.reduce(function (sum, item) {
+          return sum + item.price;
+        }, 0);
+      }
+
+      if (this.currency == "EURO") {
+        return this.cartData.reduce(function (sum, item) {
+          return sum + item.price * 0.89;
+        }, 0);
+      }
+    },
+    initialize: function initialize() {
+      this.getPizza();
+    },
+    getPrice: function getPrice(data) {
+      return data.price = data.original_price;
+    },
+    increment: function increment(data) {
+      data.quantity++;
+      return data.price = data.original_price * data.quantity;
+    },
+    decrement: function decrement(data) {
+      if (data.quantity > 1) {
+        data.quantity--;
+        return data.price = data.original_price * data.quantity;
+      }
+
+      return data.price = data.original_price * data.quantity;
+    },
+    removeProduct: function removeProduct(index) {
+      this.cartData.splice(index, 1);
+    },
+    getPizza: function getPizza() {
+      var _this = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee() {
+        var _yield$axios, data, _iterator, _step, p;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee$(_context) {
+          while (1) {
+            switch (_context.prev = _context.next) {
+              case 0:
+                _context.prev = 0;
+                _context.next = 3;
+                return axios({
+                  method: "get",
+                  url: "/app/cart"
+                });
+
+              case 3:
+                _yield$axios = _context.sent;
+                data = _yield$axios.data;
+                _this.dataList = data;
+                _iterator = _createForOfIteratorHelper(_this.dataList);
+
+                try {
+                  for (_iterator.s(); !(_step = _iterator.n()).done;) {
+                    p = _step.value;
+
+                    _this.cartData.push(p);
+                  }
+                } catch (err) {
+                  _iterator.e(err);
+                } finally {
+                  _iterator.f();
+                }
+
+                _context.next = 13;
+                break;
+
+              case 10:
+                _context.prev = 10;
+                _context.t0 = _context["catch"](0);
+                console.log('fail');
+
+              case 13:
+              case "end":
+                return _context.stop();
+            }
+          }
+        }, _callee, null, [[0, 10]]);
+      }))();
+    },
+    getCheckOut: function getCheckOut() {
+      var _this2 = this;
+
+      return _asyncToGenerator( /*#__PURE__*/_babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.mark(function _callee2() {
+        var formData, _yield$axios2, data;
+
+        return _babel_runtime_regenerator__WEBPACK_IMPORTED_MODULE_0___default.a.wrap(function _callee2$(_context2) {
+          while (1) {
+            switch (_context2.prev = _context2.next) {
+              case 0:
+                console.log(_this2.cartData);
+                console.log(_this2.total());
+                formData = [];
+                formData = _this2.cartData;
+                formData.total = _this2.total(); //  this.$store.commit('getCartData', data)
+
+                _context2.prev = 5;
+                _context2.next = 8;
+                return axios({
+                  method: "post",
+                  url: "/app/order",
+                  data: formData
+                });
+
+              case 8:
+                _yield$axios2 = _context2.sent;
+                data = _yield$axios2.data;
+
+                if (data.status) {
+                  _this2.snacks("Successfully Added", "green");
+
+                  _this2.close();
+                } else {
+                  _this2.snacks("Failed! " + data.data, "red");
+
+                  _this2.loading = false;
+                }
+
+                _context2.next = 17;
+                break;
+
+              case 13:
+                _context2.prev = 13;
+                _context2.t0 = _context2["catch"](5);
+
+                _this2.snacks("Failed! " + _context2.t0, "red");
+
+                _this2.loading = false;
+
+              case 17:
+              case "end":
+                return _context2.stop();
+            }
+          }
+        }, _callee2, null, [[5, 13]]);
+      }))();
     }
-  },
-  created: function created() {}
+  }
 });
 
 /***/ }),
@@ -40775,7 +40991,10 @@ var render = function() {
                   ),
                   _vm._v(" "),
                   _c("div", { staticClass: "row" }, [
-                    _vm._m(1, true),
+                    _c("div", {
+                      staticClass: "col-md-5",
+                      staticStyle: { padding: "3px" }
+                    }),
                     _vm._v(" "),
                     _c(
                       "div",
@@ -40806,9 +41025,7 @@ var render = function() {
             )
           }),
           0
-        ),
-        _vm._v(" "),
-        _vm._m(2)
+        )
       ]
     )
   ])
@@ -40847,78 +41064,6 @@ var staticRenderFns = [
         ]
       )
     ])
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticClass: "col-md-5", staticStyle: { padding: "3px" } },
-      [
-        _c(
-          "button",
-          {
-            staticClass: "btn btn-primary",
-            staticStyle: { width: "100%" },
-            attrs: { type: "button" }
-          },
-          [_vm._v("CUSTOMIZE")]
-        )
-      ]
-    )
-  },
-  function() {
-    var _vm = this
-    var _h = _vm.$createElement
-    var _c = _vm._self._c || _h
-    return _c(
-      "div",
-      { staticStyle: { "text-align": "center", "padding-top": "10px" } },
-      [
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "button" } },
-          [_c("i", { staticClass: "fa fa-arrow-left" })]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "button" } },
-          [_vm._v("1")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "button" } },
-          [_vm._v("2")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "button" } },
-          [_vm._v("...")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "button" } },
-          [_vm._v("30")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "button" } },
-          [_vm._v("31")]
-        ),
-        _vm._v(" "),
-        _c(
-          "button",
-          { staticClass: "btn btn-primary", attrs: { type: "button" } },
-          [_c("i", { staticClass: "fa fa-arrow-right" })]
-        )
-      ]
-    )
   }
 ]
 render._withStripped = true
@@ -41200,7 +41345,8 @@ var render = function() {
                         key: index,
                         staticClass: "col-md-12",
                         staticStyle: {
-                          padding: "8px",
+                          height: "120px",
+                          padding: "4px",
                           border:
                             "1px dotted rgba(255, 255, 255, 0.25098039215686274)",
                           "background-color": "#151414"
@@ -41208,70 +41354,44 @@ var render = function() {
                       },
                       [
                         _c(
+                          "button",
+                          {
+                            staticClass: "close",
+                            attrs: { type: "button", "aria-label": "Close" },
+                            on: {
+                              click: function($event) {
+                                return _vm.removeProduct(index)
+                              }
+                            }
+                          },
+                          [
+                            _c("span", { attrs: { "aria-hidden": "true" } }, [
+                              _vm._v("×")
+                            ])
+                          ]
+                        ),
+                        _vm._v(" "),
+                        _c(
                           "div",
                           {
-                            staticClass: "col-md-6",
+                            staticClass: "col-md-3",
                             staticStyle: { "text-align": "center" }
                           },
                           [
                             _c("img", { attrs: { src: data.image, alt: "" } }),
                             _vm._v(" "),
                             _c(
-                              "h3",
+                              "h6",
                               {
                                 staticStyle: {
-                                  "margin-top": "10px",
+                                  "margin-top": "5px",
                                   color: "#ffffff"
                                 }
                               },
                               [
                                 _vm._v(
-                                  "USD " +
+                                  "Price " +
                                     _vm._s(data.price ? data.price : data.large)
-                                )
-                              ]
-                            ),
-                            _vm._v(" "),
-                            _c(
-                              "div",
-                              {
-                                staticStyle: {
-                                  "margin-top": "10px",
-                                  color: "#ffffff"
-                                }
-                              },
-                              [
-                                _vm._v("# " + _vm._s(data.count)),
-                                _c("br"),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "btn btn-default dropdown-toggle",
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.increment(data)
-                                      }
-                                    }
-                                  },
-                                  [_vm._v("+")]
-                                ),
-                                _vm._v(" "),
-                                _c(
-                                  "button",
-                                  {
-                                    staticClass:
-                                      "btn btn-default dropdown-toggle",
-                                    on: {
-                                      click: function($event) {
-                                        $event.preventDefault()
-                                        return _vm.decrement(data)
-                                      }
-                                    }
-                                  },
-                                  [_vm._v("-")]
                                 )
                               ]
                             )
@@ -41280,10 +41400,10 @@ var render = function() {
                         _vm._v(" "),
                         _c("div", { staticClass: "col-md-6" }, [
                           _c(
-                            "h3",
+                            "h4",
                             {
                               staticStyle: {
-                                "margin-top": "10px",
+                                "margin-top": "5px",
                                 color: "#ffffff"
                               }
                             },
@@ -41293,158 +41413,60 @@ var render = function() {
                           _c(
                             "div",
                             {
-                              staticClass: "row",
-                              staticStyle: { "margin-bottom": "5px" }
+                              staticClass: "col-md-7",
+                              staticStyle: { padding: "5px", color: "#ffffff" }
                             },
                             [
+                              _vm._v(
+                                "\n                                    " +
+                                  _vm._s(data.type) +
+                                  " / " +
+                                  _vm._s(data.size) +
+                                  "\n                            "
+                              )
+                            ]
+                          ),
+                          _vm._v(" "),
+                          _c(
+                            "div",
+                            {
+                              staticStyle: {
+                                "margin-top": "10px",
+                                color: "#ffffff"
+                              }
+                            },
+                            [
+                              _vm._v("# " + _vm._s(data.quantity)),
+                              _c("br"),
+                              _vm._v(" "),
                               _c(
-                                "div",
+                                "button",
                                 {
-                                  staticClass: "col-md-7",
-                                  staticStyle: { padding: "3px" }
+                                  staticClass:
+                                    "btn btn-default dropdown-toggle",
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.increment(data)
+                                    }
+                                  }
                                 },
-                                [
-                                  _c("div", { staticClass: "dropdown" }, [
-                                    _c(
-                                      "select",
-                                      {
-                                        directives: [
-                                          {
-                                            name: "model",
-                                            rawName: "v-model",
-                                            value: data.type,
-                                            expression: "data.type"
-                                          }
-                                        ],
-                                        staticClass:
-                                          "selectpicker btn btn-default dropdown-toggle",
-                                        on: {
-                                          change: [
-                                            function($event) {
-                                              var $$selectedVal = Array.prototype.filter
-                                                .call(
-                                                  $event.target.options,
-                                                  function(o) {
-                                                    return o.selected
-                                                  }
-                                                )
-                                                .map(function(o) {
-                                                  var val =
-                                                    "_value" in o
-                                                      ? o._value
-                                                      : o.value
-                                                  return val
-                                                })
-                                              _vm.$set(
-                                                data,
-                                                "type",
-                                                $event.target.multiple
-                                                  ? $$selectedVal
-                                                  : $$selectedVal[0]
-                                              )
-                                            },
-                                            function($event) {
-                                              return _vm.getPan(data)
-                                            }
-                                          ]
-                                        }
-                                      },
-                                      [
-                                        _c(
-                                          "option",
-                                          { attrs: { value: "pan" } },
-                                          [_vm._v("Pan")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "option",
-                                          { attrs: { value: "sfl" } },
-                                          [_vm._v("SFL")]
-                                        ),
-                                        _vm._v(" "),
-                                        _c(
-                                          "option",
-                                          { attrs: { value: "thin" } },
-                                          [_vm._v("Thin Scrap")]
-                                        )
-                                      ]
-                                    )
-                                  ])
-                                ]
+                                [_vm._v("+")]
                               ),
                               _vm._v(" "),
                               _c(
-                                "div",
+                                "button",
                                 {
-                                  staticClass: "col-md-5",
-                                  staticStyle: { padding: "3px" }
+                                  staticClass:
+                                    "btn btn-default dropdown-toggle",
+                                  on: {
+                                    click: function($event) {
+                                      $event.preventDefault()
+                                      return _vm.decrement(data)
+                                    }
+                                  }
                                 },
-                                [
-                                  _c(
-                                    "select",
-                                    {
-                                      directives: [
-                                        {
-                                          name: "model",
-                                          rawName: "v-model",
-                                          value: data.size,
-                                          expression: "data.size"
-                                        }
-                                      ],
-                                      staticClass:
-                                        "selectpicker btn btn-default dropdown-toggle",
-                                      on: {
-                                        change: [
-                                          function($event) {
-                                            var $$selectedVal = Array.prototype.filter
-                                              .call(
-                                                $event.target.options,
-                                                function(o) {
-                                                  return o.selected
-                                                }
-                                              )
-                                              .map(function(o) {
-                                                var val =
-                                                  "_value" in o
-                                                    ? o._value
-                                                    : o.value
-                                                return val
-                                              })
-                                            _vm.$set(
-                                              data,
-                                              "size",
-                                              $event.target.multiple
-                                                ? $$selectedVal
-                                                : $$selectedVal[0]
-                                            )
-                                          },
-                                          function($event) {
-                                            return _vm.getPrice(data)
-                                          }
-                                        ]
-                                      }
-                                    },
-                                    [
-                                      _c(
-                                        "option",
-                                        { attrs: { value: "large" } },
-                                        [_vm._v("Large")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        { attrs: { value: "medium" } },
-                                        [_vm._v("Medium")]
-                                      ),
-                                      _vm._v(" "),
-                                      _c(
-                                        "option",
-                                        { attrs: { value: "small" } },
-                                        [_vm._v("Small")]
-                                      )
-                                    ]
-                                  )
-                                ]
+                                [_vm._v("-")]
                               )
                             ]
                           )
@@ -41453,7 +41475,85 @@ var render = function() {
                     )
                   }),
                   0
-                )
+                ),
+                _vm._v(" "),
+                _c("footer", { staticClass: "demo-footer color: #ffffff;" }, [
+                  _c("h6", { staticStyle: { color: "#ffffff" } }, [
+                    _vm._v(" Payment type : "),
+                    _c(
+                      "select",
+                      {
+                        directives: [
+                          {
+                            name: "model",
+                            rawName: "v-model",
+                            value: _vm.currency,
+                            expression: "currency"
+                          }
+                        ],
+                        staticClass:
+                          "selectpicker btn btn-default dropdown-toggle",
+                        on: {
+                          change: [
+                            function($event) {
+                              var $$selectedVal = Array.prototype.filter
+                                .call($event.target.options, function(o) {
+                                  return o.selected
+                                })
+                                .map(function(o) {
+                                  var val = "_value" in o ? o._value : o.value
+                                  return val
+                                })
+                              _vm.currency = $event.target.multiple
+                                ? $$selectedVal
+                                : $$selectedVal[0]
+                            },
+                            function($event) {
+                              return _vm.total()
+                            }
+                          ]
+                        }
+                      },
+                      [
+                        _c("option", { attrs: { value: "USD" } }, [
+                          _vm._v("USD")
+                        ]),
+                        _vm._v(" "),
+                        _c("option", { attrs: { value: "EURO" } }, [
+                          _vm._v("EURO")
+                        ])
+                      ]
+                    )
+                  ]),
+                  _vm._v(" "),
+                  _c("a", { attrs: { target: "_blank" } }, [
+                    _vm._v("Total Price : " + _vm._s(_vm.total()))
+                  ]),
+                  _vm._v(" "),
+                  _c(
+                    "button",
+                    {
+                      staticClass:
+                        "selectpicker btn btn-default dropdown-toggle",
+                      staticStyle: {
+                        "background-color": "red",
+                        "/* Green */\n  border": "none",
+                        color: "white",
+                        padding: "15px 32px",
+                        "text-align": "center",
+                        "text-decoration": "none",
+                        display: "inline-block",
+                        "font-size": "16px"
+                      },
+                      on: {
+                        click: function($event) {
+                          return _vm.getCheckOut()
+                        }
+                      }
+                    },
+                    [_vm._v("checkout ")]
+                  )
+                ])
               ]
             )
           ]
