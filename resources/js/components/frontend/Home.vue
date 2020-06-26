@@ -201,6 +201,8 @@ export default {
 
            async sendtoCart(data)
             {
+
+                
                 console.log(data)
                 let formData = []
                 formData = data

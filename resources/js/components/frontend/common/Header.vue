@@ -183,30 +183,31 @@ created() {
 
             async getCheckOut()
             {
+                this.$router.push('/checkout');
                 console.log(this.cartData);
                 console.log(this.total());
-                let formData = []
-                formData = this.cartData
-                formData.total = this.total()
-                //  this.$store.commit('getCartData', data)
-                 try 
-                                {
-                                let {data} = await axios({
-                                    method: "post",
-                                    url: "/app/order",
-                                    data:formData
-                                });
-                               if (data.status) {
-                                this.snacks("Successfully Added", "green");
-                                this.close();
-                            } else {
-                                this.snacks("Failed! "+data.data, "red");
-                                this.loading = false;
-                            }
-                        } catch (e) {
-                            this.snacks("Failed! "+e, "red");
-                            this.loading = false;
-                        }
+                // let formData = []
+                // formData = this.cartData
+                // formData.total = this.total()
+                // //  this.$store.commit('getCartData', data)
+                //  try 
+                //                 {
+                //                 let {data} = await axios({
+                //                     method: "post",
+                //                     url: "/app/order",
+                //                     data:formData
+                //                 });
+                //                if (data.status) {
+                //                 this.snacks("Successfully Added", "green");
+                //                 this.close();
+                //             } else {
+                //                 this.snacks("Failed! "+data.data, "red");
+                //                 this.loading = false;
+                //             }
+                //         } catch (e) {
+                //             this.snacks("Failed! "+e, "red");
+                //             this.loading = false;
+                //         }
             }
         },
         

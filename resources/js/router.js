@@ -8,6 +8,7 @@ import Router from 'vue-router'
 
 
 import frontend from './components/frontend/Home.vue'
+import checkout from './components/frontend/Checkout.vue'
 
 
 // import dashboardoverview from './components/dashboard/overview/OverView.vue'
@@ -48,16 +49,16 @@ export default new Router({
             }
 
         },
-        // {
-        //     path: '/frontend',
-        //     name: 'frontend',
-        //     component: frontend,
-        //     meta: 
-        //     {
-        //     title: 'AJT',
-        //     type: typeFront,
-        //     }
-        // },
+        {
+            path: '/checkout',
+            name: 'checkout',
+            component: checkout,
+            meta: 
+            {
+            title: 'AJT',
+            type: typeFront,
+            }
+        },
         // {
         //     path: '/frontend/aboutus',
         //     name: 'About Us',
