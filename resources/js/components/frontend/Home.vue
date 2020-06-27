@@ -80,6 +80,7 @@
 </template>
 
 <script>
+import 'vuejs-noty/dist/vuejs-noty.css'
 export default {
   components:{
   },
@@ -203,10 +204,9 @@ export default {
             {
 
                 
-                console.log(data)
                 let formData = []
                 formData = data
-                //  this.$store.commit('getCartData', data)
+                 
                  try 
                                 {
                                 let {data} = await axios({
@@ -215,8 +215,8 @@ export default {
                                     data:formData
                                 });
                                if (data.status) {
+                                  this.$noty.success("Pizza Succefully Added to cart")
                                 this.$store.commit('getCartData', data.data)
-                                this.snacks("Successfully Added", "green");
                                 this.close();
                             } else {
                                 this.snacks("Failed! "+data.data, "red");

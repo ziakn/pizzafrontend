@@ -14,10 +14,10 @@
             </div>
             <div class="col-6 col-xs-6  col-sm-6 col-md-6 ">
                 <div class="topnav" id="myTopnav" style="float: right;">
-                    <router-link :to="('/frontend')"><a href="#">Home</a></router-link>
-                    <router-link :to="('/frontend/aboutus')"><a href="#">About</a></router-link>
-                    <router-link :to="('/frontend/resedential')"><a href="#">Pizza</a></router-link>
-                    <router-link :to="('/frontend/commercial')"><a href="#">Contact</a></router-link>
+                    <router-link :to="('/')"><a href="#">Home</a></router-link>
+                    <router-link :to="('/aboutus')"><a href="#">About</a></router-link>
+                    <router-link :to="('/resedential')"><a href="#">Pizza</a></router-link>
+                    <router-link :to="('/commercial')"><a href="#">Contact</a></router-link>
                      <router-link :to="('/#')"><a href="#" data-toggle="modal" data-target="#myModal2">
                         Cart <i class="fa fa-shopping-cart" style="font-size:16px"></i> {{cartData.length}}
                    </a></router-link>
@@ -39,7 +39,7 @@
 				<div class="modal-body">
 					
                     <div v-for="(data,index) in cartData" :key="index" class="col-md-12" style="height: 120px; padding: 4px; border: 1px dotted rgba(255, 255, 255, 0.25098039215686274);background-color: #151414;">
-                   <button @click="removeProduct(index)" type="button" class="close"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                   <button @click="removeProduct(data)" type="button" class="close"  aria-label="Close"><span aria-hidden="true">&times;</span></button>
                     <div class="col-md-3" style="text-align: center;">
                         <img :src="data.image" alt="">
                         <h6 style="margin-top: 5px; color: #ffffff;">Price {{data.price?data.price:data.large}}</h6>
@@ -55,31 +55,36 @@
                             <button v-on:click.prevent="decrement(data)" class="btn btn-default dropdown-toggle">-</button>
                             </div>
                     </div>
+                   
                 </div>
+                 <div class="demo-footer color: #ffffff;" >
+                        <h6 style="color: #ffffff;"> Payment type : <select @change="total()" v-model="currency"  class="selectpicker btn btn-default dropdown-toggle">
+                                                        
+                                                    <option value="USD">USD</option>
+                                                    <option value="EURO">EURO</option>
+                                                    </select>
+                                                    </h6>
+                        <a  target="_blank">Total Price : {{total()}}</a>
+                        <button  class="selectpicker btn btn-default dropdown-toggle" style=" background-color: red; 
+                    border: none;
+                    color: white;
+                    padding: 15px 32px;
+                    text-align: center;
+                    text-decoration: none;
+                    display: inline-block;
+                    font-size: 16px;"  @click="getCheckOut()">checkout </button>
+                    </div>
 				</div>
-<footer class="demo-footer color: #ffffff;" >
-     <h6 style="color: #ffffff;"> Payment type : <select @change="total()" v-model="currency"  class="selectpicker btn btn-default dropdown-toggle">
-                                     
-                                <option value="USD">USD</option>
-                                <option value="EURO">EURO</option>
-                                </select>
-                                </h6>
-	<a  target="_blank">Total Price : {{total()}}</a>
-    <button  class="selectpicker btn btn-default dropdown-toggle" style=" background-color: red; /* Green */
-  border: none;
-  color: white;
-  padding: 15px 32px;
-  text-align: center;
-  text-decoration: none;
-  display: inline-block;
-  font-size: 16px;"  @click="getCheckOut()">checkout </button>
-</footer>
+                    
 			</div><!-- modal-content -->
 		</div><!-- modal-dialog -->
+        
 	</div><!-- modal -->
+    
     </div>
 </template>
 <script>
+import 'vuejs-noty/dist/vuejs-noty.css'
  export default {
         data: () => ({
 
@@ -128,19 +133,40 @@ created() {
                 this.getPizza();
             },
 
-            getPrice(data)
+             getPrice(data)
                 {
+
                        return data.price = data.original_price
                 },
 
-        increment (data) 
-        {
-            data.quantity++;
-                return data.price = data.original_price * data.quantity
+       async increment (data) 
+        {   
+            let dataa={}
+            dataa = data
+            dataa.quantity++;
+            data.price = dataa.original_price * dataa.quantity
+            dataa.price = data.price
+                                try
+                                {
+                                let {data} = await axios({
+                                   method: "put",
+                                   url: "/app/cart/" + dataa.id,
+                                   data:dataa
+                                });
+                                
+                                    this.$noty.success("Pizza Succefully remove cart")
+                                   
+                                } 
+                                catch (e) 
+                                {
+                                    console.log('fail')
+                                }
+            
+             data.price = dataa.original_price * dataa.quantity
             
         },
 
-        decrement (data) 
+      async  decrement (data) 
             {
                     if(data.quantity > 1)
                     {
@@ -149,13 +175,31 @@ created() {
                       return data.price = data.original_price * data.quantity
                     }
                    
-                        return data.price = data.original_price * data.quantity
+                    return data.price = data.original_price * data.quantity
                 
             },
 
-            removeProduct(index)
+            async removeProduct(data)
             {
-                this.cartData.splice(index, 1)
+                let dataa={}
+                dataa=data
+                try 
+                                {
+                                let {data} = await axios({
+                                   method: "delete",
+					               url: "/app/cart/" + dataa.id
+                                });
+                                
+                                    this.$noty.info("Pizza Succefully remove cart")
+                                    this.cartData.splice(data.id, 1);
+                                    			
+                             
+
+                                } 
+                                catch (e) 
+                                {
+                                    console.log('fail')
+                                }
             },
 
             
@@ -184,30 +228,8 @@ created() {
             async getCheckOut()
             {
                 this.$router.push('/checkout');
-                console.log(this.cartData);
-                console.log(this.total());
-                // let formData = []
-                // formData = this.cartData
-                // formData.total = this.total()
-                // //  this.$store.commit('getCartData', data)
-                //  try 
-                //                 {
-                //                 let {data} = await axios({
-                //                     method: "post",
-                //                     url: "/app/order",
-                //                     data:formData
-                //                 });
-                //                if (data.status) {
-                //                 this.snacks("Successfully Added", "green");
-                //                 this.close();
-                //             } else {
-                //                 this.snacks("Failed! "+data.data, "red");
-                //                 this.loading = false;
-                //             }
-                //         } catch (e) {
-                //             this.snacks("Failed! "+e, "red");
-                //             this.loading = false;
-                //         }
+                this.$router.go('/checkout');
+                
             }
         },
         

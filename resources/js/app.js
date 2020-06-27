@@ -6,7 +6,9 @@ Vue.mixin(common);
 // import 'babel-polyfill';
 require('es6-object-assign').polyfill();
 require('es6-promise').polyfill();
-
+import VueNoty from 'vuejs-noty'
+ 
+Vue.use(VueNoty)
 router.afterEach((to, from) => {
     Vue.nextTick(() => {
         document.title = to.meta.title ? to.meta.title : 'Zero Pizza';

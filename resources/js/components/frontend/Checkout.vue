@@ -23,9 +23,9 @@
           <div class="col-50">
             <h3>Billing Address</h3>
             <label for="fname"><i class="fa fa-user"></i> Full Name</label>
-            <input type="text" id="fname" v-model="editedItem.name" placeholder="John M. Doe">
+            <input type="text" id="fname" v-model="editedItem.name" placeholder="John M. Doe" >
             <label for="email"><i class="fa fa-envelope"></i> Mobile</label>
-            <input type="text" id="email" v-model="editedItem.mobile" placeholder="112345678">
+            <input type="text" id="email" v-model="editedItem.number" placeholder="112345678">
             <label for="adr"><i class="fa fa-address-card-o"></i> Address</label>
             <input type="text" id="adr" v-model="editedItem.address" placeholder="542 W. 15th Street">
             <label for="city"><i class="fa fa-institution"></i> City</label>
@@ -94,16 +94,12 @@
     <div class="container">
       <h4>Cart
         <span class="price" style="color:black">
-          <i class="fa fa-shopping-cart"></i>
-          <b>4</b>
         </span>
       </h4>
-      <p><a href="#">Product 1</a> <span class="price">$15</span></p>
-      <p><a href="#">Product 2</a> <span class="price">$5</span></p>
-      <p><a href="#">Product 3</a> <span class="price">$8</span></p>
-      <p><a href="#">Product 4</a> <span class="price">$2</span></p>
+      <p v-for="(data,index) in dataList" :key="index"><a href="#">{{data.name}}</a> <span class="price">{{data.price}}</span></p>
+     
       <hr>
-      <p>Total <span class="price" style="color:black"><b>$30</b></span></p>
+      <p>Total <span class="price" style="color:black"><b>{{editedItem.total_price=total()}}</b></span></p>
     </div>
   </div>
 </div>
@@ -114,6 +110,7 @@
         </div>
 </template>
 <script>
+import 'vuejs-noty/dist/vuejs-noty.css'
 export default {
       data: () => ({
 
@@ -124,21 +121,85 @@ export default {
                editedItem:
                {
                    name:'',
-                   mobile:'',
+                   number:'',
                    address:'',
                    city:'',
                    state:'',
                    zip:'',
                    country:'USA',
                    note:'',
-               }
+                   total_price:'',
+                   cart:[  ]
+               },
         }),
+created() {
+           this.initialize()
+        },
 
         methods: {
-            checkoutdata()
+            initialize()
             {
-                console.log(this.editedItem)
-            }
+                this.getPizza();
+            },
+             total()
+            {
+                let sum = 0;
+                   
+                
+                     return this.dataList.reduce((sum, item) => sum + item.price, 0);
+                
+            },
+             async getPizza() 
+                        {
+                            try 
+                                {
+                                let {data} = await axios({
+                                    method: "get",
+                                    url: "/app/cart",
+                                });
+                                this.dataList = data;
+                                  
+                                } 
+                                catch (e) 
+                                {
+                                    console.log('fail')
+                                }
+                        },
+
+                         async checkoutdata() 
+                        {
+                         
+                          for(let p of this.dataList)
+                                  {
+                                      this.editedItem.cart.push(p)
+                                  }
+                            try 
+                                {
+                                let {data} = await axios({
+                                    method: "post",
+                                    url: "/app/order",
+                                    data : this.editedItem
+                                });
+                                if(data.status)
+                                {
+                                   this.$noty.success("Order Placed Succefully")
+                                  setTimeout(() => this.isHidden = false, 500);
+                                    this.$router.push('/checkout');
+                                    this.$router.go('/checkout');
+                                  
+                                }
+                                else{
+                                   this.$noty.error("Fill the form")
+                                }
+                               
+                              
+                               
+                                } 
+                                catch (e) 
+                                {
+                                      this.$noty.error("Fill the form")
+                                }
+                        },
         }
 }
 </script>

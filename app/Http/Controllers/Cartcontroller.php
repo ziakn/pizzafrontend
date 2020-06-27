@@ -103,7 +103,8 @@ class Cartcontroller extends Controller
      */
     public function edit($id)
     {
-        //
+        
+        //$response['data']=Cart::where('id',$id)
     }
 
     /**
@@ -115,6 +116,7 @@ class Cartcontroller extends Controller
      */
     public function update(Request $request, $id)
     {
+        // dd($id);
         $response=array();
         $response['status']=false;
         $response['data'] ='';
@@ -127,6 +129,7 @@ class Cartcontroller extends Controller
                 [
                     
                     "quantity" => $request->quantity,
+                    "price" => $request->price,
                 ]
             );     
             DB::commit();
@@ -147,6 +150,7 @@ class Cartcontroller extends Controller
      */
     public function destroy($id)
     {
+        // dd($id);
         $data=Cart::where('id',$id)->delete();
         return $data;
     }

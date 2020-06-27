@@ -37,12 +37,12 @@ class OrderController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-        public function store(Request $request)
+    public function store(Request $request)
     {
         $response=array();
         $response['status']=false;
         $response['data'] ='';
-        dd($request->all());
+        // dd($request->all());
         $validator = Validator::make(
             $request->all(), [
                 'name' => 'required|string|max:255',
@@ -82,7 +82,7 @@ class OrderController extends Controller
                         'name' => $item->name,
                         'size' => $item->size,
                         'type' => $item->type,
-                        'price' => $item->price,
+                        'price' => $item->original_price,
                         'quantity' => $item->quantity,
                         'note' => $item->note,
                     ]);

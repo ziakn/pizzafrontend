@@ -33,7 +33,6 @@ Route::prefix('/app')->group(function () {
 });
 
 
-
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/{slug}', 'HomeController@index');
 Route::get('/{slug}/{child}', 'HomeController@index');
