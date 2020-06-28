@@ -183,7 +183,7 @@ created() {
                                 if(data.status)
                                 {
                                    this.$noty.success("Order Placed Succefully")
-                                  setTimeout(() => this.isHidden = false, 500);
+                                  setTimeout(() => this.isHidden = false, 600);
                                     this.$router.push('/checkout');
                                     this.$router.go('/checkout');
                                   

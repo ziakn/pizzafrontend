@@ -2189,7 +2189,7 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 
                   setTimeout(function () {
                     return _this2.isHidden = false;
-                  }, 500);
+                  }, 600);
 
                   _this2.$router.push('/checkout');
 
