@@ -37,7 +37,7 @@
                     <div class="col-xl-8 col-lg-8">
                         <div class="footer-widget">
                             <div class="footer-logo">
-                                <a href="index.html"><img src="images/logo.png" class="img-fluid" alt="logo"></a>
+                                <a href="index.html"><img src="images/logo.jpg" class="img-fluid" alt="logo"></a>
                             </div>
                             <div class="footer-text">
                                 <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing

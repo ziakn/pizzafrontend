@@ -2615,7 +2615,6 @@ function _asyncToGenerator(fn) { return function () { var self = this, args = ar
 //
 //
 //
-//
 
 /* harmony default export */ __webpack_exports__["default"] = ({
   data: function data() {
@@ -42070,6 +42069,156 @@ render._withStripped = true
 
 /***/ }),
 
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/aboutus/AboutUs.vue?vue&type=template&id=657aa815&":
+/*!***************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/frontend/aboutus/AboutUs.vue?vue&type=template&id=657aa815& ***!
+  \***************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "div",
+        { staticStyle: { "padding-top": "5px", "padding-bottom": "5px" } },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              {
+                staticClass: "col-md-12",
+                staticStyle: {
+                  "margin-bottom": "5px",
+                  padding: "8px",
+                  border: "2px solid rgba(255, 255, 255, 0.25098039215686274)",
+                  "background-color": "#151414"
+                }
+              },
+              [
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c(
+                    "h2",
+                    { staticStyle: { color: "#fff", "text-align": "center" } },
+                    [_vm._v("ABOUT US")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "h5",
+                    {
+                      staticStyle: {
+                        color: "#757575",
+                        "padding-bottom": "10px",
+                        "text-align": "center"
+                      }
+                    },
+                    [_vm._v("We Are Innscripta")]
+                  ),
+                  _vm._v(" "),
+                  _c(
+                    "p",
+                    {
+                      staticStyle: { color: "#ffffff", "line-height": "25px" }
+                    },
+                    [
+                      _vm._v(
+                        "Come on in, grab a food, sit back and relax. Fabios is waiting to serve you. Located across Qatar, you will enjoy a variety of drinks and food within a warm, contemporary atmosphere. We strive for excellence in food, drink, atmosphere and service. Our menu is based on simple comfort food where the taste and quality stands for what we believe in. Coming to Fabios, you will get a full experience - not only with our food but also great tea and coffee."
+                      )
+                    ]
+                  )
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row",
+                    staticStyle: { "text-align": "center" }
+                  },
+                  [
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c(
+                        "h3",
+                        {
+                          staticStyle: {
+                            color: "#ffffff",
+                            "background-color": "#0cb14c"
+                          }
+                        },
+                        [_vm._v("Our Vision")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticStyle: {
+                            color: "#ffffff",
+                            "line-height": "25px"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "Come on in, grab a food, sit back and relax. Fabios is waiting to serve you. Located across Qatar. You will enjoy a variety of drinks and food within a warm, contemporary atmosphere. "
+                          )
+                        ]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-6" }, [
+                      _c(
+                        "h3",
+                        {
+                          staticStyle: {
+                            color: "#ffffff",
+                            "background-color": "#d31e25"
+                          }
+                        },
+                        [_vm._v("Our Mission")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "p",
+                        {
+                          staticStyle: {
+                            color: "#ffffff",
+                            "line-height": "25px"
+                          }
+                        },
+                        [
+                          _vm._v(
+                            "We strive for excellence in food, drink, atmosphere and service. Our menu is based on simple comfort food where the taste and quality stands for what we believe in. Coming to Fabios, you will get a full experience - not only with our food but also great tea and coffee."
+                          )
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]
+            )
+          ])
+        ]
+      )
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
 /***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/common/Footer.vue?vue&type=template&id=5e32202d&":
 /*!*************************************************************************************************************************************************************************************************************************!*\
   !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/frontend/common/Footer.vue?vue&type=template&id=5e32202d& ***!
@@ -42142,7 +42291,7 @@ var staticRenderFns = [
                   _c("a", { attrs: { href: "index.html" } }, [
                     _c("img", {
                       staticClass: "img-fluid",
-                      attrs: { src: "images/logo.png", alt: "logo" }
+                      attrs: { src: "images/logo.jpg", alt: "logo" }
                     })
                   ])
                 ]),
@@ -42256,11 +42405,7 @@ var render = function() {
                 _c("a", { attrs: { href: "#" } }, [_vm._v("About")])
               ]),
               _vm._v(" "),
-              _c("router-link", { attrs: { to: "/resedential" } }, [
-                _c("a", { attrs: { href: "#" } }, [_vm._v("Pizza")])
-              ]),
-              _vm._v(" "),
-              _c("router-link", { attrs: { to: "/commercial" } }, [
+              _c("router-link", { attrs: { to: "/contactus" } }, [
                 _c("a", { attrs: { href: "#" } }, [_vm._v("Contact")])
               ]),
               _vm._v(" "),
@@ -42611,7 +42756,7 @@ var staticRenderFns = [
     var _h = _vm.$createElement
     var _c = _vm._self._c || _h
     return _c("div", { staticClass: "col-6 col-xs-6  col-sm-6 col-md-6 " }, [
-      _c("img", { staticClass: "logo", attrs: { src: "images/logo.png" } })
+      _c("img", { staticClass: "logo", attrs: { src: "images/logo.jpg" } })
     ])
   },
   function() {
@@ -42639,6 +42784,322 @@ var staticRenderFns = [
           staticStyle: { "font-size": "16px" }
         })
       ])
+    ])
+  }
+]
+render._withStripped = true
+
+
+
+/***/ }),
+
+/***/ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/contactus/ContactUs.vue?vue&type=template&id=b722420a&":
+/*!*******************************************************************************************************************************************************************************************************************************!*\
+  !*** ./node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!./node_modules/vue-loader/lib??vue-loader-options!./resources/js/components/frontend/contactus/ContactUs.vue?vue&type=template&id=b722420a& ***!
+  \*******************************************************************************************************************************************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "render", function() { return render; });
+/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return staticRenderFns; });
+var render = function() {
+  var _vm = this
+  var _h = _vm.$createElement
+  var _c = _vm._self._c || _h
+  return _vm._m(0)
+}
+var staticRenderFns = [
+  function() {
+    var _vm = this
+    var _h = _vm.$createElement
+    var _c = _vm._self._c || _h
+    return _c("div", [
+      _c(
+        "div",
+        { staticStyle: { "padding-top": "5px", "padding-bottom": "5px" } },
+        [
+          _c("div", { staticClass: "row" }, [
+            _c(
+              "div",
+              {
+                staticClass: "col-md-12",
+                staticStyle: {
+                  "margin-bottom": "5px",
+                  padding: "8px",
+                  border: "2px solid rgba(255, 255, 255, 0.25098039215686274)",
+                  "background-color": "#151414"
+                }
+              },
+              [
+                _c(
+                  "div",
+                  {
+                    staticClass: "col-md-12",
+                    staticStyle: { "text-align": "center" }
+                  },
+                  [
+                    _c("h2", { staticStyle: { color: "#fff" } }, [
+                      _vm._v("CONTACT US")
+                    ]),
+                    _vm._v(" "),
+                    _c(
+                      "h5",
+                      {
+                        staticStyle: {
+                          color: "#757575",
+                          "padding-bottom": "10px"
+                        }
+                      },
+                      [_vm._v("We Are Fabious")]
+                    )
+                  ]
+                ),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row",
+                    staticStyle: {
+                      "text-align": "center",
+                      "padding-bottom": "30px"
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c(
+                        "h3",
+                        {
+                          staticStyle: {
+                            color: "#ffffff",
+                            "background-color": "#d31e25",
+                            "padding-top": "5px",
+                            "padding-bottom": "5px"
+                          }
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-map-marker" }),
+                          _vm._v(" Address")
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "h2",
+                        {
+                          staticStyle: {
+                            color: "#ffffff",
+                            "line-height": "1.5vw"
+                          }
+                        },
+                        [_vm._v("Doha - Qatar ")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c(
+                        "h3",
+                        {
+                          staticStyle: {
+                            color: "#ffffff",
+                            "background-color": "#0cb14c",
+                            "padding-top": "5px",
+                            "padding-bottom": "5px"
+                          }
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-phone" }),
+                          _vm._v(" Mobile")
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "h2",
+                        {
+                          staticStyle: {
+                            color: "#ffffff",
+                            "line-height": "1.5vw"
+                          }
+                        },
+                        [_vm._v("(+974) 1234 5678")]
+                      )
+                    ]),
+                    _vm._v(" "),
+                    _c("div", { staticClass: "col-md-4" }, [
+                      _c(
+                        "h3",
+                        {
+                          staticStyle: {
+                            color: "#ffffff",
+                            "background-color": "#d31e25",
+                            "padding-top": "5px",
+                            "padding-bottom": "5px"
+                          }
+                        },
+                        [
+                          _c("i", { staticClass: "fa fa-envelope" }),
+                          _vm._v(" Email")
+                        ]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "h2",
+                        {
+                          staticStyle: {
+                            color: "#ffffff",
+                            "line-height": "1.5vw"
+                          }
+                        },
+                        [_vm._v("abcd@gmail.com")]
+                      )
+                    ])
+                  ]
+                ),
+                _vm._v(" "),
+                _c("div", { staticClass: "col-md-12" }, [
+                  _c("iframe", {
+                    staticStyle: { border: "0" },
+                    attrs: {
+                      src:
+                        "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3608.5815636987077!2d51.4516183148859!3d25.251014835711732!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3e45da6d6d31c94d%3A0x944868c1a879456!2sFabio's%20Pizza%20%26%20Italian%20Food!5e0!3m2!1sen!2sqa!4v1587984788209!5m2!1sen!2sqa",
+                      width: "100%",
+                      height: "300",
+                      frameborder: "0",
+                      allowfullscreen: "",
+                      "aria-hidden": "false",
+                      tabindex: "0"
+                    }
+                  })
+                ]),
+                _vm._v(" "),
+                _c(
+                  "div",
+                  {
+                    staticClass: "row",
+                    staticStyle: {
+                      "text-align": "center",
+                      "max-width": "800px",
+                      "margin-left": "auto",
+                      "margin-right": "auto"
+                    }
+                  },
+                  [
+                    _c("div", { staticClass: "col-md-12" }, [
+                      _c(
+                        "h2",
+                        {
+                          staticStyle: {
+                            color: "#ffffff",
+                            "background-color": "#d31e25",
+                            "padding-top": "10px",
+                            "padding-bottom": "10px"
+                          }
+                        },
+                        [_vm._v("Send A Message")]
+                      ),
+                      _vm._v(" "),
+                      _c(
+                        "form",
+                        {
+                          staticClass: "conmail",
+                          attrs: { method: "post", action: "#" }
+                        },
+                        [
+                          _c("div", { staticClass: "row" }, [
+                            _c(
+                              "div",
+                              { staticClass: "col-md-12 col-sm-12 col-lg-12" },
+                              [
+                                _c("input", {
+                                  attrs: {
+                                    name: "name",
+                                    type: "text",
+                                    placeholder: "Your Name",
+                                    required: ""
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-md-12 col-sm-12 col-lg-12" },
+                              [
+                                _c("input", {
+                                  attrs: {
+                                    name: "number",
+                                    type: "number",
+                                    placeholder: "Mobile - (+974) 1234 5678",
+                                    required: ""
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-md-12 col-sm-12 col-lg-12" },
+                              [
+                                _c("input", {
+                                  attrs: {
+                                    name: "email",
+                                    id: "email",
+                                    type: "email",
+                                    placeholder: "Your Email"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-md-12 col-sm-12 col-lg-12" },
+                              [
+                                _c("textarea", {
+                                  attrs: {
+                                    name: "message",
+                                    id: "comments",
+                                    placeholder: "Message"
+                                  }
+                                })
+                              ]
+                            ),
+                            _vm._v(" "),
+                            _c(
+                              "div",
+                              { staticClass: "col-md-12 col-sm-12 col-lg-12" },
+                              [
+                                _c(
+                                  "button",
+                                  {
+                                    staticClass: "brd-rd2",
+                                    staticStyle: {
+                                      "background-color": "#000",
+                                      color: "#fff",
+                                      "font-weight": "700",
+                                      "font-size": "14px",
+                                      padding: "17px 30px",
+                                      display: "inline-block",
+                                      "margin-top": "10px",
+                                      "margin-bottom": "25px"
+                                    },
+                                    attrs: { name: "submit", type: "submit" }
+                                  },
+                                  [_vm._v("SEND MESSAGE")]
+                                )
+                              ]
+                            )
+                          ])
+                        ]
+                      )
+                    ])
+                  ]
+                )
+              ]
+            )
+          ])
+        ]
+      )
     ])
   }
 ]
@@ -59390,6 +59851,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/frontend/aboutus/AboutUs.vue":
+/*!**************************************************************!*\
+  !*** ./resources/js/components/frontend/aboutus/AboutUs.vue ***!
+  \**************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _AboutUs_vue_vue_type_template_id_657aa815___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./AboutUs.vue?vue&type=template&id=657aa815& */ "./resources/js/components/frontend/aboutus/AboutUs.vue?vue&type=template&id=657aa815&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _AboutUs_vue_vue_type_template_id_657aa815___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _AboutUs_vue_vue_type_template_id_657aa815___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/frontend/aboutus/AboutUs.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/frontend/aboutus/AboutUs.vue?vue&type=template&id=657aa815&":
+/*!*********************************************************************************************!*\
+  !*** ./resources/js/components/frontend/aboutus/AboutUs.vue?vue&type=template&id=657aa815& ***!
+  \*********************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutUs_vue_vue_type_template_id_657aa815___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./AboutUs.vue?vue&type=template&id=657aa815& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/aboutus/AboutUs.vue?vue&type=template&id=657aa815&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutUs_vue_vue_type_template_id_657aa815___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_AboutUs_vue_vue_type_template_id_657aa815___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/components/frontend/common/Footer.vue":
 /*!************************************************************!*\
   !*** ./resources/js/components/frontend/common/Footer.vue ***!
@@ -59530,6 +60044,59 @@ __webpack_require__.r(__webpack_exports__);
 
 /***/ }),
 
+/***/ "./resources/js/components/frontend/contactus/ContactUs.vue":
+/*!******************************************************************!*\
+  !*** ./resources/js/components/frontend/contactus/ContactUs.vue ***!
+  \******************************************************************/
+/*! exports provided: default */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _ContactUs_vue_vue_type_template_id_b722420a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ./ContactUs.vue?vue&type=template&id=b722420a& */ "./resources/js/components/frontend/contactus/ContactUs.vue?vue&type=template&id=b722420a&");
+/* harmony import */ var _node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../../../../node_modules/vue-loader/lib/runtime/componentNormalizer.js */ "./node_modules/vue-loader/lib/runtime/componentNormalizer.js");
+
+var script = {}
+
+
+/* normalize component */
+
+var component = Object(_node_modules_vue_loader_lib_runtime_componentNormalizer_js__WEBPACK_IMPORTED_MODULE_1__["default"])(
+  script,
+  _ContactUs_vue_vue_type_template_id_b722420a___WEBPACK_IMPORTED_MODULE_0__["render"],
+  _ContactUs_vue_vue_type_template_id_b722420a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"],
+  false,
+  null,
+  null,
+  null
+  
+)
+
+/* hot reload */
+if (false) { var api; }
+component.options.__file = "resources/js/components/frontend/contactus/ContactUs.vue"
+/* harmony default export */ __webpack_exports__["default"] = (component.exports);
+
+/***/ }),
+
+/***/ "./resources/js/components/frontend/contactus/ContactUs.vue?vue&type=template&id=b722420a&":
+/*!*************************************************************************************************!*\
+  !*** ./resources/js/components/frontend/contactus/ContactUs.vue?vue&type=template&id=b722420a& ***!
+  \*************************************************************************************************/
+/*! exports provided: render, staticRenderFns */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+__webpack_require__.r(__webpack_exports__);
+/* harmony import */ var _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactUs_vue_vue_type_template_id_b722420a___WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! -!../../../../../node_modules/vue-loader/lib/loaders/templateLoader.js??vue-loader-options!../../../../../node_modules/vue-loader/lib??vue-loader-options!./ContactUs.vue?vue&type=template&id=b722420a& */ "./node_modules/vue-loader/lib/loaders/templateLoader.js?!./node_modules/vue-loader/lib/index.js?!./resources/js/components/frontend/contactus/ContactUs.vue?vue&type=template&id=b722420a&");
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "render", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactUs_vue_vue_type_template_id_b722420a___WEBPACK_IMPORTED_MODULE_0__["render"]; });
+
+/* harmony reexport (safe) */ __webpack_require__.d(__webpack_exports__, "staticRenderFns", function() { return _node_modules_vue_loader_lib_loaders_templateLoader_js_vue_loader_options_node_modules_vue_loader_lib_index_js_vue_loader_options_ContactUs_vue_vue_type_template_id_b722420a___WEBPACK_IMPORTED_MODULE_0__["staticRenderFns"]; });
+
+
+
+/***/ }),
+
 /***/ "./resources/js/router.js":
 /*!********************************!*\
   !*** ./resources/js/router.js ***!
@@ -59544,26 +60111,13 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var vue_router__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! vue-router */ "./node_modules/vue-router/dist/vue-router.esm.js");
 /* harmony import */ var _components_frontend_Home_vue__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./components/frontend/Home.vue */ "./resources/js/components/frontend/Home.vue");
 /* harmony import */ var _components_frontend_Checkout_vue__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! ./components/frontend/Checkout.vue */ "./resources/js/components/frontend/Checkout.vue");
-
- // import dashboard from './components/dashboard/overview/Home.vue'
-// import category from './components/dashboard/category/Home.vue'
-// import amenity from './components/dashboard/amenity/Home.vue'
-// import property from './components/dashboard/property/Home.vue'
+/* harmony import */ var _components_frontend_aboutus_AboutUs_vue__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! ./components/frontend/aboutus/AboutUs.vue */ "./resources/js/components/frontend/aboutus/AboutUs.vue");
+/* harmony import */ var _components_frontend_contactus_ContactUs_vue__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./components/frontend/contactus/ContactUs.vue */ "./resources/js/components/frontend/contactus/ContactUs.vue");
 
 
- // import dashboardoverview from './components/dashboard/overview/OverView.vue'
-// import categorylist from './components/dashboard/category/List.vue'
-// import amenitylist from './components/dashboard/amenity/List.vue'
-// import propertylist from './components/dashboard/property/List.vue'
-// import propertyadd from './components/dashboard/property/Add.vue'
-// import propertyedit from './components/dashboard/property/Edit.vue'
-// import profile from './components/dashboard/profile/Profile.vue'
-// import aboutus from './components/frontend/aboutus/AboutUs.vue'
-// import contactus from './components/frontend/contactus/ContactUs.vue'
-// import resedential from './components/frontend/resedential/Home.vue'
-// import commercial from './components/frontend/commercial/Home.vue'
-// import labour from './components/frontend/labour/Home.vue'
-// import description from './components/frontend/description/Description.vue'
+
+
+
 
 var adminOnly = [1];
 var typeFront = 'frontend';
@@ -59575,7 +60129,7 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     name: 'frontend',
     component: _components_frontend_Home_vue__WEBPACK_IMPORTED_MODULE_2__["default"],
     meta: {
-      title: 'Innoscripta',
+      title: 'Innoscripta|home',
       type: typeFront
     }
   }, {
@@ -59583,70 +60137,26 @@ vue__WEBPACK_IMPORTED_MODULE_0___default.a.use(vue_router__WEBPACK_IMPORTED_MODU
     name: 'checkout',
     component: _components_frontend_Checkout_vue__WEBPACK_IMPORTED_MODULE_3__["default"],
     meta: {
-      title: 'AJT',
+      title: 'Innoscripta|checout',
       type: typeFront
     }
-  } // {
-  //     path: '/frontend/aboutus',
-  //     name: 'About Us',
-  //     component: aboutus,
-  //     meta: 
-  //     {
-  //     title: 'AJT',
-  //     type: typeFront,
-  //     }
-  // },
-  // {
-  //     path: '/frontend/resedential',
-  //     name: 'Residential',
-  //     component: resedential,
-  //     meta: 
-  //     {
-  //     title: 'AJT',
-  //     type: typeFront,
-  //     }
-  // },
-  // {
-  //     path: '/frontend/commercial',
-  //     name: 'Commercial',
-  //     component: commercial,
-  //     meta: 
-  //     {
-  //     title: 'AJT',
-  //     type: typeFront,
-  //     }
-  // },
-  // {
-  //     path: '/frontend/labour',
-  //     name: 'Labour',
-  //     component: labour,
-  //     meta: 
-  //     {
-  //     title: 'AJT',
-  //     type: typeFront,
-  //     }
-  // },
-  // {
-  //     path: '/frontend/contactus',
-  //     name: 'Contact Us',
-  //     component: contactus,
-  //     meta: 
-  //     {
-  //     title: 'AJT',
-  //     type: typeFront,
-  //     }
-  // },
-  // {
-  //     path: '/frontend/propertydescription/:slug',
-  //     name: 'Description',
-  //     component: description,
-  //     meta: 
-  //     {
-  //     title: 'Property Description',
-  //     type: typeFront,
-  //     }
-  // },
-  ]
+  }, {
+    path: '/aboutus',
+    name: 'About Us',
+    component: _components_frontend_aboutus_AboutUs_vue__WEBPACK_IMPORTED_MODULE_4__["default"],
+    meta: {
+      title: 'Innoscripta|Aboutus',
+      type: typeFront
+    }
+  }, {
+    path: '/contactus',
+    name: 'contact Us',
+    component: _components_frontend_contactus_ContactUs_vue__WEBPACK_IMPORTED_MODULE_5__["default"],
+    meta: {
+      title: 'contactus',
+      type: typeFront
+    }
+  }]
 }));
 
 /***/ }),

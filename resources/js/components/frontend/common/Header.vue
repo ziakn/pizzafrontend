@@ -10,14 +10,13 @@
         </div>
         <div class="row jumbotron" style="background-color: #ffffff;">
             <div class="col-6 col-xs-6  col-sm-6 col-md-6 ">
-                <img src="images/logo.png" class="logo">
+                <img src="images/logo.jpg" class="logo">
             </div>
             <div class="col-6 col-xs-6  col-sm-6 col-md-6 ">
                 <div class="topnav" id="myTopnav" style="float: right;">
                     <router-link :to="('/')"><a href="#">Home</a></router-link>
                     <router-link :to="('/aboutus')"><a href="#">About</a></router-link>
-                    <router-link :to="('/resedential')"><a href="#">Pizza</a></router-link>
-                    <router-link :to="('/commercial')"><a href="#">Contact</a></router-link>
+                    <router-link :to="('/contactus')"><a href="#">Contact</a></router-link>
                      <router-link :to="('/#')"><a href="#" data-toggle="modal" data-target="#myModal2">
                         Cart <i class="fa fa-shopping-cart" style="font-size:16px"></i> {{cartData.length}}
                    </a></router-link>
